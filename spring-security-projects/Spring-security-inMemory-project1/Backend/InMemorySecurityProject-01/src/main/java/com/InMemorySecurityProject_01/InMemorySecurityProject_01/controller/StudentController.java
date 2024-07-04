@@ -29,6 +29,11 @@ public class StudentController {
 		return "You send "+str;
 	}
 	
+	@GetMapping("/user")
+	public String user() {
+		return "this is user";
+	}
+	
 	@PostMapping("/save")
 	public ResponseEntity<Students> save(@RequestBody Students student) {
 		Students s = service.save(student);
