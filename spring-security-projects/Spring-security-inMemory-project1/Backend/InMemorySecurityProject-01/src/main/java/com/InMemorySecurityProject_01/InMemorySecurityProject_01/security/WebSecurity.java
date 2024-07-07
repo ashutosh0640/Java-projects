@@ -2,6 +2,8 @@ package com.InMemorySecurityProject_01.InMemorySecurityProject_01.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -20,6 +22,13 @@ public class WebSecurity {
 		manager.createUser(
 				User.withUsername("ashu").password(passwordEncoder.encode("ashu@1234")).roles("ADMIN").build());
 		return manager;
+	}
+	
+	@Bean
+	public AuthenticationProvider authenticationProvider() {
+		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+		daoAuthenticationProvider.setUserDetailsPasswordService(userDetailsPasswordService);
+		
 	}
 
 	public PasswordEncoder passwordEncoder() {
