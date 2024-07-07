@@ -20,9 +20,7 @@ public class SecurityStudentUserDetailsService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		//return repo.findByEmail(username);
 		Students user = repo.findByEmail(username);
-		if (user == null) {
-			throw new Exception();
-		}
+		
 		
 		return new org.springframework.security.core.userdetails.User(
 				user.getUsername(), user.getPassword(), user.getAuthorities()

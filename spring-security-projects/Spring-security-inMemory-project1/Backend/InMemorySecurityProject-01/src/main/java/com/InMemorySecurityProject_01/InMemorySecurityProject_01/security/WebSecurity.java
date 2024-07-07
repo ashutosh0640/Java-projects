@@ -24,12 +24,12 @@ public class WebSecurity {
 		return manager;
 	}
 	
-	@Bean
-	public AuthenticationProvider authenticationProvider() {
-		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-		daoAuthenticationProvider.setUserDetailsPasswordService(userDetailsPasswordService);
-		
-	}
+//	@Bean
+//	public AuthenticationProvider authenticationProvider() {
+//		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+//		daoAuthenticationProvider.setUserDetailsPasswordService(userDetailsPasswordService);
+//		
+//	}
 
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
