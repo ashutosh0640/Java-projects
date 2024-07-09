@@ -17,17 +17,19 @@ public class BasicAuthSecurity {
 		return http
 				.authorizeHttpRequests(auth -> auth
 				//.requestMatchers("/api/names").permitAll()
-				.requestMatchers("/api/products").permitAll()
-				.requestMatchers("/api/orders").permitAll()
-				.requestMatchers("/register").permitAll()
-				.requestMatchers("/login").permitAll()
+//				.requestMatchers("/api/products").permitAll()
+//				.requestMatchers("/api/orders").permitAll()
+//				.requestMatchers("/register").permitAll()
+//				.requestMatchers("/login").permitAll()
 				.anyRequest().authenticated()
 				)
 				.formLogin(form -> form
+//						.loginPage("http://127.0.0.1:5500/src/login.html")
 						.defaultSuccessUrl("http://127.0.0.1:5500/src/home.html", true)
+						.failureUrl("http://127.0.0.1:5500/src/login.html?error=true")
 				)
 				.logout(config -> config
-						.logoutSuccessUrl("/")
+						.logoutSuccessUrl("http://127.0.0.1:5500/src/logout.html")
 				)
 				.build();
 	}
