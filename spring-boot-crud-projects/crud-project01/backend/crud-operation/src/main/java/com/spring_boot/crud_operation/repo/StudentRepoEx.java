@@ -13,7 +13,7 @@ import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuer
 
 import com.spring_boot.crud_operation.entity.Student;
 
-public class StudentRepoEx implements JpaRepository<Student, Long>{
+public class StudentRepoEx implements JpaRepository<Student, String>{
 
 	@Override
 	public <S extends Student> List<S> saveAll(Iterable<S> entities) {
@@ -28,7 +28,7 @@ public class StudentRepoEx implements JpaRepository<Student, Long>{
 	}
 
 	@Override
-	public List<Student> findAllById(Iterable<Long> ids) {
+	public List<Student> findAllById(Iterable<String> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -40,13 +40,13 @@ public class StudentRepoEx implements JpaRepository<Student, Long>{
 	}
 
 	@Override
-	public Optional<Student> findById(Long id) {
+	public Optional<Student> findById(String id) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
 	@Override
-	public boolean existsById(Long id) {
+	public boolean existsById(String id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -58,7 +58,7 @@ public class StudentRepoEx implements JpaRepository<Student, Long>{
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -70,7 +70,7 @@ public class StudentRepoEx implements JpaRepository<Student, Long>{
 	}
 
 	@Override
-	public void deleteAllById(Iterable<? extends Long> ids) {
+	public void deleteAllById(Iterable<? extends String> ids) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -154,7 +154,7 @@ public class StudentRepoEx implements JpaRepository<Student, Long>{
 	}
 
 	@Override
-	public void deleteAllByIdInBatch(Iterable<Long> ids) {
+	public void deleteAllByIdInBatch(Iterable<String> ids) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -166,19 +166,19 @@ public class StudentRepoEx implements JpaRepository<Student, Long>{
 	}
 
 	@Override
-	public Student getOne(Long id) {
+	public Student getOne(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Student getById(Long id) {
+	public Student getById(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Student getReferenceById(Long id) {
+	public Student getReferenceById(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
