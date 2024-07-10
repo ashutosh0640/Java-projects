@@ -1,9 +1,9 @@
 package com.spring_boot.crud_operation.entity;
 
+import org.hibernate.annotations.UuidGenerator;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
@@ -21,12 +21,11 @@ import lombok.Setter;
 		@Index(name="index_email", columnList="email"),
 		@Index(name="index_mobile", columnList="mobile")
 })
-
 public class Student {
 	
-	 @Id
-	 @GeneratedValue(strategy=GenerationType.IDENTITY)
-	 private long id;
+    @Id
+    @UuidGenerator
+    private String id;
 	 
 	 @Column(name="first_name")
 	 private String firstName;
@@ -50,11 +49,11 @@ public class Student {
 	 
 	 private String country;
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

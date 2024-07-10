@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -30,16 +31,16 @@ public class StudentServiceImp implements StudentService{
 	}
 
 	@Override
-	public Optional<Student> findById(long id) {
+	public Optional<Student> findById(String id) {
 		Optional<Student> student =  repo.findById(id);
 		if(student.isEmpty()) {
-			throw new ResourceNotFoundException("Student is not found by this id: "+id);
+			throw new ResourceNotFoundException("Student is not found by id: "+id);
 		}
 		return student;
 	}
 
 	@Override
-	public boolean existsById(long id) {
+	public boolean existsById(String id) {
 		return repo.existsById(id);
 	}
 
@@ -49,7 +50,7 @@ public class StudentServiceImp implements StudentService{
 	}
 
 	@Override
-	public List<Student> findAllById(List<Long> ids) {
+	public List<Student> findAllById(List<String> ids) {
 		return repo.findAllById(ids);
 	}
 
@@ -59,7 +60,7 @@ public class StudentServiceImp implements StudentService{
 	}
 
 	@Override
-	public boolean deleteById(long id) {
+	public boolean deleteById(String id) {
 		boolean res = repo.existsById(id);
 		if(res) {
 			repo.deleteById(id);
@@ -77,33 +78,33 @@ public class StudentServiceImp implements StudentService{
 	}
 
 	@Override
-	public void deleteAllById(List<Long> id) {
-		// TODO Auto-generated method stub
-		
+	public void deleteAllById(List<String> id) {
+		repo.deleteAllById(id);
 	}
 
 	@Override
 	public void deleteAll(List<Student> students) {
-		// TODO Auto-generated method stub
-		
+		repo.deleteAll();
 	}
 
 	@Override
 	public void deleteAll() {
 		repo.deleteAll();
-		
 	}
 
 	@Override
 	public List<Student> findAll(Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Student> students = repo.findAll(sort);
+		if (students.isEmpty()) {
+			throw new ResourceNotFoundException("No student found");
+		}
+		return students;
 	}
 
 	@Override
-	public List<Student> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
+	public Page<Student> findAll(Pageable pageable) {
+		Page<Student> students =  repo.findAll(pageable);
+		return students;
 	}
 
 }

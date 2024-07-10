@@ -3,6 +3,7 @@ package com.spring_boot.crud_operation.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
@@ -16,21 +17,21 @@ public interface StudentService {
 	
 	public List<Student> saveAll(List<Student> students);
 	
-	public Optional<Student> findById(long id);
+	public Optional<Student> findById(String id);
 	
-	public boolean existsById(long id);
+	public boolean existsById(String id);
 	
 	public List<Student> findAll();
 	
-	public List<Student> findAllById(List<Long> ids);
+	public List<Student> findAllById(List<String> ids);
 	
 	public long count();
 	
-	public boolean deleteById(long id);
+	public boolean deleteById(String id);
 	
 	public boolean delete(Student student);
 	
-	public void deleteAllById(List<Long> id);
+	public void deleteAllById(List<String> id);
 	
 	public void deleteAll(List<Student> students);
 	
@@ -43,6 +44,6 @@ public interface StudentService {
 	
 	public List<Student> findAll(Sort sort);
 	
-	public List<Student> findAll(Pageable pageable);
+	public Page<Student> findAll(Pageable pageable);
 
 }
