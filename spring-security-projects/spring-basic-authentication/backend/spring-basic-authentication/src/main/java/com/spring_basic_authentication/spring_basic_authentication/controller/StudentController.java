@@ -1,4 +1,4 @@
-package com.spring_boot.crud_operation.controller;
+package com.spring_basic_authentication.spring_basic_authentication.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring_boot.crud_operation.entity.Student;
 import com.spring_boot.crud_operation.service.StudentServiceImp;
+
 
 @RestController
 @RequestMapping("/api/student")
@@ -48,8 +49,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("/findById")
-
-	public ResponseEntity<Optional<Student>> findById(@RequestParam long id) {
+	public ResponseEntity<Optional<Student>> findById(String id) {
 		Optional<Student> student = service.findById(id);
 		return new ResponseEntity<>(student, HttpStatus.OK);
 	}
@@ -67,8 +67,7 @@ public class StudentController {
  	}
 	
 	@GetMapping("/findAllById")
-
-	public ResponseEntity<List<Student>> findAllById(@RequestBody List<Long> ids) {
+	public ResponseEntity<List<Student>> findAllById(@RequestParam List<String> ids) {
 		List<Student> students = service.findAllById(ids);
 		return new ResponseEntity<>(students, HttpStatus.OK);
 	}
@@ -80,8 +79,7 @@ public class StudentController {
 	}
 	
 	@DeleteMapping("/deleteById")
-
-	public boolean deleteById(@RequestParam long id) {
+	public boolean deleteById(@RequestParam String id) {
 		boolean res = service.deleteById(id);
 		return res;
 	}
@@ -93,15 +91,14 @@ public class StudentController {
 	}
 	
 	@DeleteMapping("/deleteAllById")
-
-	public void deleteAllById(@RequestBody List<Long> id) {
-		service.deleteAllById(id);
+	public void deleteAllById(@RequestParam List<String> ids) {
+		service.deleteAllById(ids);
 	}
 	
-	@DeleteMapping("/deleteAllStudents")
-	public void deleteAll(@RequestBody List<Student> students) {
-		service.deleteAll();
+	public void deleteAll(List<Student> students) {
+		service.deleteAll(students);
 	}
+	
 	
 	@DeleteMapping("/deleteAll")
 	public void deleteAll() {
@@ -111,10 +108,6 @@ public class StudentController {
 	
 	
 	
-
-	
-	
-
 	
 
 //	PagingAndSorting Methods
@@ -136,7 +129,7 @@ public class StudentController {
 		Pageable pageable = PageRequest.of(page, size);
 		Page<Student> students = service.findAll(pageable);
 		return new ResponseEntity<>(students, HttpStatus.OK);
-
 	}
 
 }
+

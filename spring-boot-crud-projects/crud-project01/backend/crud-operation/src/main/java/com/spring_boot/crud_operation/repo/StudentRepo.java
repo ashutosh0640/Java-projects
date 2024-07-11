@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.spring_boot.crud_operation.entity.Student;
 
 @Repository
-public interface StudentRepo extends JpaRepository<Student, Long>{}
+public interface StudentRepo extends JpaRepository<Student, String>{}

@@ -1,4 +1,4 @@
-package com.spring_boot.crud_operation.entity;
+package com.spring_basic_authentication.spring_basic_authentication.entity;
 
 import org.hibernate.annotations.UuidGenerator;
 
@@ -7,21 +7,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@Data
 @Table(name="student", indexes= {
 		@Index(name="index_email", columnList="email"),
 		@Index(name="index_mobile", columnList="mobile")
 })
 public class Student {
+	
 	
     @Id
     @UuidGenerator
@@ -128,6 +122,12 @@ public class Student {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	 
-	 
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", mobile=" + mobile + ", profilePic=" + profilePic + ", city=" + city + ", state=" + state
+				+ ", zipcode=" + zipcode + ", country=" + country + "]";
+	}
+
 }
