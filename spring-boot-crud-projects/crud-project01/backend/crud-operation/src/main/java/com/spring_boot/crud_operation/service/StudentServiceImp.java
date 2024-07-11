@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -78,14 +79,12 @@ public class StudentServiceImp implements StudentService{
 
 	@Override
 	public void deleteAllById(List<Long> id) {
-		// TODO Auto-generated method stub
-		
+		repo.deleteAllById(id);
 	}
 
 	@Override
 	public void deleteAll(List<Student> students) {
-		// TODO Auto-generated method stub
-		
+		repo.deleteAll(students);
 	}
 
 	@Override
@@ -96,14 +95,14 @@ public class StudentServiceImp implements StudentService{
 
 	@Override
 	public List<Student> findAll(Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findAll(sort);
 	}
 
+
 	@Override
-	public List<Student> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
+	public Page<Student> findAll(Pageable pageable) {
+		Page<Student> students =  repo.findAll(pageable);
+		return students;
 	}
 
 }

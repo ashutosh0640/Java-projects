@@ -3,6 +3,7 @@ package com.spring_boot.crud_operation.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
@@ -43,6 +44,6 @@ public interface StudentService {
 	
 	public List<Student> findAll(Sort sort);
 	
-	public List<Student> findAll(Pageable pageable);
+	public Page<Student> findAll(Pageable pageable);
 
 }
