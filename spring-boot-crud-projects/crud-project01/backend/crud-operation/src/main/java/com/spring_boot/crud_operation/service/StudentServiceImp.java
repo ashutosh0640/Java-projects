@@ -79,7 +79,6 @@ public class StudentServiceImp implements StudentService{
 	}
 
 	@Override
-
 	public void deleteAllById(List<Long> id) {
 		repo.deleteAllById(id);
 	}
