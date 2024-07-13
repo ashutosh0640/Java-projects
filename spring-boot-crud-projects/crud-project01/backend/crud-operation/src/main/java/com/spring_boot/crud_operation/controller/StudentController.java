@@ -49,7 +49,7 @@ public class StudentController {
 	
 	@GetMapping("/findById")
 
-	public ResponseEntity<Optional<Student>> findById(@RequestParam long id) {
+	public ResponseEntity<Optional<Student>> findById(@RequestParam String id) {
 		Optional<Student> student = service.findById(id);
 		return new ResponseEntity<>(student, HttpStatus.OK);
 	}
@@ -68,7 +68,7 @@ public class StudentController {
 	
 	@GetMapping("/findAllById")
 
-	public ResponseEntity<List<Student>> findAllById(@RequestBody List<Long> ids) {
+	public ResponseEntity<List<Student>> findAllById(@RequestBody List<String> ids) {
 		List<Student> students = service.findAllById(ids);
 		return new ResponseEntity<>(students, HttpStatus.OK);
 	}
@@ -81,7 +81,7 @@ public class StudentController {
 	
 	@DeleteMapping("/deleteById")
 
-	public boolean deleteById(@RequestParam long id) {
+	public boolean deleteById(@RequestParam String id) {
 		boolean res = service.deleteById(id);
 		return res;
 	}
@@ -94,7 +94,7 @@ public class StudentController {
 	
 	@DeleteMapping("/deleteAllById")
 
-	public void deleteAllById(@RequestBody List<Long> id) {
+	public void deleteAllById(@RequestBody List<String> id) {
 		service.deleteAllById(id);
 	}
 	

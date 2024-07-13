@@ -9,37 +9,44 @@ import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="student", indexes= {
-		@Index(name="index_email", columnList="email"),
-		@Index(name="index_mobile", columnList="mobile")
-})
+@Table(name = "student", indexes = { 
+		@Index(name = "index_email", columnList = "email"),
+		@Index(name = "index_mobile", columnList = "mobile") })
 public class Student {
-	
+
 	@Id
-	 @GeneratedValue(strategy=GenerationType.IDENTITY)
-	 private long id;
-	 
-	 @Column(name="first_name")
-	 private String firstName;
-	 
-	 @Column(name="last_name")
-	 private String lastName;
-	 
-	 @Column(name="email")
-	 private String email;
-	 
-	 private String mobile;
-	 
-	 @Column(name="profile_pic")
-	 private String profilePic;
-	 
-	 private String city;
-	 
-	 private String state;
-	 
-	 private String zipcode;
-	 
-	 private String country;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+
+	@Column(name = "first_name", nullable=false)
+	private String firstName;
+
+	@Column(name = "last_name", nullable=false)
+	private String lastName;
+
+	@Column(name = "email", nullable=false, unique=true)
+	private String email;
+
+	@Column(name="mobile", nullable=false, unique=true)
+	private String mobile;
+
+	@Column(name = "profile_pic")
+	private String profilePic;
+	
+	@Column(name="gender", nullable=false)
+	private String gender;
+
+	@Column(nullable=false)
+	private String city;
+
+	@Column(nullable=false)
+	private String state;
+
+	@Column(nullable=false)
+	private String zipcode;
+
+	@Column(nullable=false)
+	private String country;
 
 	public long getId() {
 		return id;
