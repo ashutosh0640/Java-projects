@@ -79,7 +79,7 @@ public class StudentServiceImp implements StudentService{
 	}
 
 	@Override
-	public void deleteAllById(List<Long> id) {
+	public void deleteAllById(List<String> id) {
 		repo.deleteAllById(id);
 	}
 
