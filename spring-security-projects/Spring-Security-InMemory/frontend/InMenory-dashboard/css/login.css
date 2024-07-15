@@ -30,7 +30,7 @@ body {
 	position: relative;	
 	height: 600px;
 	width: 360px;	
-	box-shadow: 0px 0px 24px #5C5696;
+	box-shadow: 0px 0px 24px var(--light-green);
 }
 
 .screen__content {
@@ -67,7 +67,7 @@ body {
 .screen__background__shape2 {
 	height: 220px;
 	width: 220px;
-	background: #6C63AC;	
+	background: var(--dark-green);	
 	top: -172px;
 	right: 0;	
 	border-radius: 32px;
@@ -76,7 +76,7 @@ body {
 .screen__background__shape3 {
 	height: 540px;
 	width: 190px;
-	background: linear-gradient(270deg, #5D54A4, #6A679E);
+	background: linear-gradient(270deg, #158826, #679e6a);
 	top: -24px;
 	right: 0;	
 	border-radius: 32px;
@@ -85,16 +85,15 @@ body {
 .screen__background__shape4 {
 	height: 400px;
 	width: 200px;
-	background: #08290d;	
+	background: #0b6e1a;	
 	top: 420px;
-	right: 50px;	
+	right: 50px;
 	border-radius: 60px;
 }
 
 .login {
 	width: 320px;
 	padding: 30px;
-	padding-top: 156px;
 }
 
 .login__field {
@@ -118,6 +117,13 @@ body {
 	width: 75%;
 	transition: .2s;
 }
+
+.login>a{
+	border: 2px solid red;
+	margin-top: 30px;
+	text-decoration: none;
+}
+
 
 .login__input:active,
 .login__input:focus,

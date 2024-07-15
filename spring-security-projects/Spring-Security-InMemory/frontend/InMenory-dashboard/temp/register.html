@@ -14,7 +14,7 @@
         <h1 id="title">Registration Form</h1>
         <div>
             <div>
-                <form id="registration_form" >
+                <form id="registration_form">
                     <div class="form_wrapper">
                         <div class="form_container">
                             <div class="row clearfix">
@@ -24,13 +24,15 @@
                                             <div class="col_half">
                                                 <div class="input_field"> <span><i aria-hidden="true"
                                                             class="fa fa-user"></i></span>
-                                                    <input id="first_name" type="text" name="name" placeholder="First Name" required />
+                                                    <input id="first_name" type="text" name="name"
+                                                        placeholder="First Name" required />
                                                 </div>
                                             </div>
                                             <div class="col_half">
                                                 <div class="input_field"> <span><i aria-hidden="true"
                                                             class="fa fa-user"></i></span>
-                                                    <input id="last_name" type="text" name="name" placeholder="Last Name" required />
+                                                    <input id="last_name" type="text" name="name"
+                                                        placeholder="Last Name" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -41,26 +43,73 @@
                                         </div>
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-lock"></i></span>
-                                            <input id="password" type="password" name="password" placeholder="Password" required />
-                                        </div>
-                                        <div class="input_field"> <span><i aria-hidden="true"
-                                                    class="fa fa-lock"></i></span>
-                                            <input id="re_password" type="password" name="password" placeholder="Re-type Password"
+                                            <input id="password" type="password" name="password" placeholder="Password"
                                                 required />
                                         </div>
                                         <div class="input_field"> <span><i aria-hidden="true"
-                                                    class="fa fa-envelope"></i></span>
-                                            <input id="mob_num" type="number" name="mobile" placeholder="Mobile Number" required />
+                                                    class="fa fa-lock"></i></span>
+                                            <input id="re_password" type="password" name="password"
+                                                placeholder="Re-type Password" required />
                                         </div>
-                                        
+                                        <div class="input_field"> <span><i aria-hidden="true"
+                                                    class="fa fa-envelope"></i></span>
+                                            <input id="mob_num" type="number" name="mobile" placeholder="Mobile Number"
+                                                required />
+                                        </div>
+
 
                                         <div class="input_field radio_option">
-                                            <input type="radio" name="radiogroup1" id="rd1"  value="Male" required >
+                                            <input type="radio" name="radiogroup1" id="rd1" value="Male" required>
                                             <label for="rd1">Male</label>
                                             <input type="radio" name="radiogroup1" id="rd2" value="Female">
                                             <label for="rd2">Female</label>
                                         </div>
-                                        <div class="input_field select_option" >
+                                        <div class="input_field select_option">
+                                            <select id="states">
+                                                <option value="" disabled selected>Select a state</option>
+                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands
+                                                </option>
+                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                <option value="Assam">Assam</option>
+                                                <option value="Bihar">Bihar</option>
+                                                <option value="Chandigarh">Chandigarh</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar
+                                                    Haveli and Daman and Diu</option>
+                                                <option value="Delhi">Delhi</option>
+                                                <option value="Goa">Goa</option>
+                                                <option value="Gujarat">Gujarat</option>
+                                                <option value="Haryana">Haryana</option>
+                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                <option value="Jharkhand">Jharkhand</option>
+                                                <option value="Karnataka">Karnataka</option>
+                                                <option value="Kerala">Kerala</option>
+                                                <option value="Ladakh">Ladakh</option>
+                                                <option value="Lakshadweep">Lakshadweep</option>
+                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                <option value="Maharashtra">Maharashtra</option>
+                                                <option value="Manipur">Manipur</option>
+                                                <option value="Meghalaya">Meghalaya</option>
+                                                <option value="Mizoram">Mizoram</option>
+                                                <option value="Nagaland">Nagaland</option>
+                                                <option value="Odisha">Odisha</option>
+                                                <option value="Puducherry">Puducherry</option>
+                                                <option value="Punjab">Punjab</option>
+                                                <option value="Rajasthan">Rajasthan</option>
+                                                <option value="Sikkim">Sikkim</option>
+                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                <option value="Telangana">Telangana</option>
+                                                <option value="Tripura">Tripura</option>
+                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                <option value="Uttarakhand">Uttarakhand</option>
+                                                <option value="West Bengal">West Bengal</option>
+
+                                            </select>
+                                            <div class="select_arrow"></div>
+                                        </div>
+                                        <div class="input_field select_option">
                                             <select id="country">
                                                 <option value="" disabled selected>Select a country</option>
                                                 <option value="India">India</option>

@@ -36,14 +36,9 @@ public class Student {
 	@Column(name="gender", nullable=false)
 	private String gender;
 
-	@Column(nullable=false)
-	private String city;
 
 	@Column(nullable=false)
 	private String state;
-
-	@Column(nullable=false)
-	private String zipcode;
 
 	@Column(nullable=false)
 	private String country;
@@ -96,13 +91,6 @@ public class Student {
 		this.profilePic = profilePic;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
 
 	public String getState() {
 		return state;
@@ -112,13 +100,6 @@ public class Student {
 		this.state = state;
 	}
 
-	public String getZipcode() {
-		return zipcode;
-	}
-
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
 
 	public String getCountry() {
 		return country;
