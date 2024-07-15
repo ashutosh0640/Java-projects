@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,10 +26,16 @@ import com.spring_security.InMemory.service.StudentService;
 
 @RestController
 @RequestMapping("/api/student")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class StudentController {
 
 	@Autowired
 	private StudentService service;
+	
+	@GetMapping("/test")
+	public String test(@RequestParam String word) {
+		return "This is test "+word;
+	}
 
 	@PostMapping("/save")
 	public ResponseEntity<Student> save(@RequestBody Student student) {
