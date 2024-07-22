@@ -9,95 +9,51 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @RestController
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class LoginController {
 	
-	
-	private AuthenticationManager authenticationManager;
-	
 	@Autowired
-	private UserDetailsService userDetailsService;
-	
+	private AuthenticationManager authenticationManager;
+
 	@PostMapping("/login")
-	public ResponseEntity<?> loging(@RequestBody UserLogin user) {
-		System.out.println(user.getUsername()+" "+user.getPassword());
+	public String loging(@RequestParam String username, @RequestParam String password, HttpServletRequest request) {
+		System.out.println("request: "+request);
 		
 		try {
-			Authentication authentication = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
-					);
-			SecurityContextHolder.getContext().setAuthentication(authentication);
-			
-			UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
-			
-			return ResponseEntity.ok(new AuthResponse(user.getUsername(), "Login Successful"));
-			
-		}catch (AuthenticationException e) {
-	
-			return ResponseEntity.status(401).body(new AuthResponse(user.getUsername(), "Login failed"));
-		}
+            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password);
+            authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            Authentication authentication = authenticationManager.authenticate(authToken);
+
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            return "Login successful";
+        } catch (AuthenticationException e) {
+            return "Login failed: " + e.getMessage();
+        }
 		
 	}
 	
 	@GetMapping("/logout")
-	public ResponseEntity<?> logout(HttpSession session) {
-		session.invalidate();
-		return ResponseEntity.ok(new AuthResponse("Login Successful"));
-		
-	}
+    public ResponseEntity<?> logout(HttpServletRequest request, HttpServletResponse response) {
+        // Invalidate the session
+        request.getSession().invalidate();
+        // Clear the authentication
+        SecurityContextHolder.clearContext();
+        return ResponseEntity.ok("Logout Successful");
+    }
 
-}
-
-class AuthResponse {
-	
-	private String username;
-	private String message;
-//	private String token;
-	
-	
-	
-	public AuthResponse(String username, String message) {
-		super();
-		this.username = username;
-		this.message = message;
-	}
-
-	public AuthResponse(String message) {
-	super();
-	this.message = message;
-}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-
-	@Override
-	public String toString() {
-		return "AuthResponse [username=" + username + ", message=" + message + "]";
-	}
 	
 }
 

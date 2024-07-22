@@ -33,8 +33,4 @@ public class UserLogin {
 		return "UserLogin [username=" + username + ", password=" + password + "]";
 	}
 	
-	
-	
-	
-
 }
