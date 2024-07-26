@@ -26,7 +26,7 @@ import com.spring_security.InMemory.service.StudentService;
 
 @RestController
 @RequestMapping("/api/student")
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins = "http://localhost:8081")
 public class StudentController {
 
 	@Autowired
