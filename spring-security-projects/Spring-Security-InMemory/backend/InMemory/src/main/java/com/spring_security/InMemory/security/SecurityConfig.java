@@ -53,9 +53,9 @@ public class SecurityConfig {
 	        
 	        // Configuring logout
 	        .logout(logout -> logout
-	        		.logoutUrl("/logout") // The URL to trigger logout
-	                .logoutSuccessUrl("http://localhost:8081/login?logout=true") // The URL to redirect to after successful logout
-	                .invalidateHttpSession(true)
+	        		//.logoutUrl("/logout") // The URL to trigger logout
+	                //.logoutSuccessUrl("http://localhost:8081/login?logout=true") // The URL to redirect to after successful logout
+	                //.invalidateHttpSession(true)
 	                //.deleteCookies("JSESSIONID")
 	                .permitAll()
 	        )
@@ -71,5 +71,7 @@ public class SecurityConfig {
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration configure) throws Exception {
 		return configure.getAuthenticationManager();
 	}
+	
+	
 
 }

@@ -30,8 +30,6 @@ public class Student {
 	@Column(name="mobile", nullable=false, unique=true)
 	private String mobile;
 
-	@Column(name = "profile_pic")
-	private String profilePic;
 	
 	@Column(name="gender", nullable=false)
 	private String gender;
@@ -42,6 +40,25 @@ public class Student {
 
 	@Column(nullable=false)
 	private String country;
+	
+	
+	
+
+	public Student() {
+		super();
+	}
+
+	public Student(String firstName, String lastName, String email, String mobile, String gender, String state,
+			String country) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.mobile = mobile;
+		this.gender = gender;
+		this.state = state;
+		this.country = country;
+	}
 
 	public long getId() {
 		return id;
@@ -81,14 +98,6 @@ public class Student {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
-
-	public String getProfilePic() {
-		return profilePic;
-	}
-
-	public void setProfilePic(String profilePic) {
-		this.profilePic = profilePic;
 	}
 
 

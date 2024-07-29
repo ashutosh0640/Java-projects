@@ -23,6 +23,11 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                 document.getElementById('error').innerText = 'Invalid username or password';
             }
         })
+        .then(data => {
+            // Assuming the token is in data.token
+            document.cookie = `token=${data.token}; path=/; secure;`;
+            console.log('Login successful');
+        })
         .catch(error => {
             document.getElementById('error').innerText = `Error: ${error}`;
         });
