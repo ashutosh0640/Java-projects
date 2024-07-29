@@ -1,16 +1,36 @@
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
 const app = express();
 const port = 8081;
+// const cors = require('cors');
+
+
+// const corsOptions = {
+//   origin: ['http://localhost:8080'], // Allow requests from Spring Boot
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+//   allowedHeaders: '*',
+//   credentials: true,
+// };
+// app.use(cors(corsOptions));
+
+
+const cors = require('cors');
 
 const corsOptions = {
-  origin: ['http://localhost:8080'], // Allow requests from Spring Boot
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  allowedHeaders: '*',
-  credentials: true,
-};
+    origin: ['http://localhost:8080/'],
+    credentials: true,
+    optionSuccessStatus: 200
+}
+
 app.use(cors(corsOptions));
+
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', "http://localhost:8080");
+    res.header('Access-Control-Allow-Headers', true);
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    next();
+});
 
 
 // Serve static files from the 'public' directory

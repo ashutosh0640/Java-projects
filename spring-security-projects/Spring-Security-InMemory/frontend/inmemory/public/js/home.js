@@ -1,14 +1,29 @@
-document.getElementById("logoutButton").addEventListener("click", function () {
-    fetch("http://localhost:8080/logout", {
-        method: "POST",
+
+
+function getUserInformation() {
+    fetch("http://localhost:8080/user/name", {
+        method: "GET",
         credentials: "include"
     })
-    .then(response => {
-        if (response.ok) {
-            window.location.href = "http://127.0.0.1:5500/inmemory/login.html?logout=true";
-        } else {
-            console.error("Logout failed.");
+}
+
+
+document.getElementById("logoutButton").addEventListener("click", function () {
+    fetch('http://localhost:8080/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
         }
-    })
-    .catch(error => console.error("Error:", error));
+      })
+        .then(response => {
+          if (response.ok) {
+            console.log('Logout successful');
+          } else {
+            return response.json().then(data => {
+              throw new Error(data.message);
+            });
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    
 });

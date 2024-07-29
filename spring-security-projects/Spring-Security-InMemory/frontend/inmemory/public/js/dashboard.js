@@ -22,7 +22,7 @@ document.querySelector("#logout").addEventListener('click', function () {
                 // Redirect to the login page after successful logout
                 var a = "logout successful";
                 setTimeout(alert(a), 2000);
-                window.location.href = '/login.html';
+                window.location.href = '/login.html?logout=true';
             } else {
                 // Handle logout error
                 console.error('Logout failed');
