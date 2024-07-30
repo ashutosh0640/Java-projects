@@ -70,6 +70,7 @@ public class UserController {
 	
 	@DeleteMapping("/delete")
 	public ResponseEntity<String> deleteUser(@RequestParam String username, @RequestParam String password) {
+		
 		if(inmemoryUserDetailsManager.userExists(username)) {
 			inmemoryUserDetailsManager.deleteUser(username);
 			return ResponseEntity.ok("User deleted successfully");
