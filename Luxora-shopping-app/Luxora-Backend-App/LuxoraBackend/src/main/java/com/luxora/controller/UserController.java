@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.luxora.ServiceImp.UserServiceImp;
 import com.luxora.entity.User;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/user")
@@ -30,57 +33,113 @@ public class UserController {
 	@Autowired
 	private UserServiceImp service;
 
+	// Find user by ID
 	@GetMapping("/findById")
 	public ResponseEntity<Optional<User>> findById(@RequestParam Integer id) {
-		Optional<User> user = service.findById(id);
-		return new ResponseEntity<>(user, HttpStatus.OK);
+		try {
+			logger.info("Finding user by ID: {}", id);
+			Optional<User> user = service.findById(id);
+
+			// Return 404 if user is not found
+			if (user.isEmpty()) {
+				logger.warn("User not found with ID: {}", id);
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+
+			return new ResponseEntity<>(user, HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("Error occurred while finding user by ID: {}", ex.getMessage());
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
+	// Find all users
 	@GetMapping("/findAll")
 	public ResponseEntity<List<User>> findAll() {
-		List<User> userList = service.findAll();
-		return new ResponseEntity<>(userList, HttpStatus.OK);
+		try {
+			logger.info("Finding all users");
+			List<User> userList = service.findAll();
+
+			if (userList.isEmpty()) {
+				logger.warn("No users found");
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+			return new ResponseEntity<>(userList, HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("Error occurred while finding all users: {}", ex.getMessage());
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
+	// Find all users by IDs
 	@GetMapping("/findAllById")
 	public ResponseEntity<List<User>> findAllById(@RequestParam List<Integer> ids) {
-		List<User> userList = service.findAllById(ids);
+		try {
+			logger.info("Finding users by IDs: {}", ids);
+			List<User> userList = service.findAllById(ids);
 
-		return userList.isEmpty() ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
-				: new ResponseEntity<>(userList, HttpStatus.OK);
+			if (userList.isEmpty()) {
+				logger.warn("No users found for the given IDs: {}", ids);
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+			return new ResponseEntity<>(userList, HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("Error occurred while finding users by IDs: {}", ex.getMessage());
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
+	// Find users with pagination
 	@GetMapping("/findAllByPage")
 	public ResponseEntity<Page<User>> findAll(@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "10") int size) {
+		try {
+			logger.info("Fetching users with pagination - Page: {}, Size: {}", page, size);
 
-		Page<User> userPage = service.findAll(page, size);
+			Page<User> userPage = service.findAll(page, size);
 
-		return new ResponseEntity<>(userPage, HttpStatus.OK);
+			logger.info("Successfully fetched {} users", userPage.getTotalElements());
+			return new ResponseEntity<>(userPage, HttpStatus.OK);
+
+		} catch (Exception ex) {
+			logger.error("An error occurred while fetching users: {}", ex.getMessage());
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	// Save user
 	@PostMapping("/save")
-	public ResponseEntity<User> save(@RequestBody User user) {
-		User saveUser = service.save(user);
-		return new ResponseEntity<>(saveUser, HttpStatus.CREATED);
+	public ResponseEntity<?> save(@Valid @RequestBody User user) {
+		try {
+			logger.info("Attempting to save user: {}", user);
+
+			User savedUser = service.save(user);
+
+			logger.info("User successfully saved with ID: {}", savedUser.getId());
+			return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+
+		} catch (IllegalArgumentException ex) {
+			logger.error("Invalid input data: {}", ex.getMessage());
+			return new ResponseEntity<>("Invalid input data", HttpStatus.BAD_REQUEST);
+		} catch (Exception ex) {
+			logger.error("An error occurred while saving user: {}", ex.getMessage());
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	// Save multiple users
 	@PostMapping("/saveAll")
 	public ResponseEntity<List<User>> saveAll(@RequestBody List<User> users) {
 		try {
-			// Logging the incoming request
 			logger.info("Attempting to save list of users");
 
-			// Save all users
 			List<User> savedUsers = service.saveAll(users);
 
-			// Return the saved list of users with CREATED status
 			return new ResponseEntity<>(savedUsers, HttpStatus.CREATED);
 
 		} catch (Exception ex) {
-			// Handle exceptions and log the error
 			logger.error("An error occurred while saving users: {}", ex.getMessage());
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -186,5 +245,18 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	
+	
+	@PutMapping("/updateUser")
+	public ResponseEntity<User> updateUser(@RequestParam Integer id, @RequestBody User user) {
+		logger.info("Updating user information: {}");
+		try {
+			User u = service.updateUserById(id, user);
+			logger.info("User is updated successfully. {}", u);
+			return new ResponseEntity<>(u, HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("An error occurred while updating the user: {}", ex.getMessage());
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }

@@ -42,5 +42,9 @@ public interface UserService {
 		public User getUserByEmail(String email);
 		
 		public User getUserByMobileNumber(String mobile);
+		
+		
+		//Edit user
+		public User updateUserById(Integer id, User user);
 
 }
