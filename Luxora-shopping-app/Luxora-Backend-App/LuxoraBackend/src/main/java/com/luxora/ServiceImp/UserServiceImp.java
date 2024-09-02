@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.luxora.entity.User;
 import com.luxora.repository.UserRepository;
+import com.luxora.security.EncodePassword;
 import com.luxora.service.UserService;
 
 @Service
@@ -20,6 +21,9 @@ public class UserServiceImp implements UserService {
 
 	@Autowired
 	private UserRepository repo;
+	
+	@Autowired
+	private EncodePassword encodePassword;
 
 	private static final Logger logger = LoggerFactory.getLogger(UserServiceImp.class);
 
@@ -96,7 +100,13 @@ public class UserServiceImp implements UserService {
 	public User save(User user) {
 		logger.info("Saving user: {}", user);
 		try {
-			// validateUser(user); // Optional validation
+			
+			String rawPass = user.getPassword();
+			
+			String encodedPass = encodePassword.passwordEncoder().encode(rawPass);
+			
+			user.setPassword(encodedPass);
+			
 			User savedUser = repo.save(user);
 			logger.debug("User saved successfully: {}", savedUser);
 			return savedUser;
@@ -226,8 +236,14 @@ public class UserServiceImp implements UserService {
 			throw new RuntimeException("Failed to retrieve user by mobile number", ex);
 		}
 	}
+	
 
-	// Edit user
+	/**
+     * Updating user's first name, last name, email, mobile, username etc.
+     * 
+     * @param user details.
+     * @return updated user.
+     */
 	@Override
 	public User updateUserById(Integer id, User user) {
 		logger.info("Editing user by ID: {}", id);
@@ -252,5 +268,22 @@ public class UserServiceImp implements UserService {
 			throw new RuntimeException("Failed to edit user", ex);
 		}
 	}
-
+	
+	 /**
+     * Searches for users based on first name, last name, mobile, or email.
+     * 
+     * @param searchTerm The term to search for in any of the user fields.
+     * @return A list of users matching the search criteria.
+     */
+	@Override
+    public List<User> searchUsers(String searchTerm) {
+    	logger.info("Searching User using term: {}", searchTerm);
+    	try {
+    		return repo.searchByAnyField(searchTerm);
+    	} catch (Exception ex) {
+    		logger.error("Error occurred while searching user by this term: {}", ex.getMessage(), ex);
+			throw new RuntimeException("Failed to search user", ex);
+    		
+    	}
+    }
 }
