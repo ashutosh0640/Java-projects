@@ -47,4 +47,12 @@ public interface UserService {
 		//Edit user
 		public User updateUserById(Integer id, User user);
 
+		/**
+		 * Searches for users based on first name, last name, mobile, or email.
+		 * 
+		 * @param searchTerm The term to search for in any of the user fields.
+		 * @return A list of users matching the search criteria.
+		 */
+		List<User> searchUsers(String searchTerm);
+
 }

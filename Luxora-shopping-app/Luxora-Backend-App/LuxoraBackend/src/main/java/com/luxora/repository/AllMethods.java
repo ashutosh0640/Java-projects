@@ -205,4 +205,16 @@ public class AllMethods implements UserRepository {
 		return null;
 	}
 
+	@Override
+	public int updatePassword(Integer id, String password) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<User> searchByAnyField(String searchTerm) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

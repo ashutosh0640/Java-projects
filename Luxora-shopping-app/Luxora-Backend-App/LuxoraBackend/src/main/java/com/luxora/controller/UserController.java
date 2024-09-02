@@ -259,4 +259,45 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	
+	@GetMapping("/checkEmail")
+	public ResponseEntity<Boolean> checkEmailIsNotDuplicate(@RequestParam String email) {
+	    logger.info("Checking for duplicate email: {}", email);
+	    try {
+	        User user = service.getUserByEmail(email);
+	        boolean isDuplicate = user == null;
+	        return new ResponseEntity<>(isDuplicate, HttpStatus.OK);
+	    } catch (Exception ex) {
+	        logger.error("An error occurred while checking for duplicate email: {}", ex.getMessage());
+	        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	}
+
+	
+	@GetMapping("/checkMobile")
+	public ResponseEntity<Boolean> ckeckPhoneIsNotDuplicate(@RequestParam String mobile) {
+		logger.info("Checking for duplicate mobile number: {}", mobile);
+		try {
+			User user = service.getUserByMobileNumber(mobile);
+			boolean isDuplicate = user==null;
+			return new ResponseEntity<>(isDuplicate, HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("An error occurred while checking for duplicate mobile number: {}", ex.getMessage());
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+    /**
+     * Endpoint to search for users based on any field.
+     * 
+     * @param searchTerm The term to search for.
+     * @return A list of users matching the search criteria.
+     */
+    @GetMapping("/searchUsers")
+    public ResponseEntity<List<User>> searchUsers(@RequestParam String searchTerm) {
+        List<User> users = service.searchUsers(searchTerm);
+        return ResponseEntity.ok(users);
+    }
+
 }
