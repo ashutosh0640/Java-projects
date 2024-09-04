@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.luxora.entity.User;
@@ -286,4 +287,27 @@ public class UserServiceImp implements UserService {
     		
     	}
     }
+	
+	@Override
+	public Page<User> findAllByPage(int pageNum, int pageSize, String[] properties, String direction) {
+	    logger.info("Finding users from page {} with size {}.", pageNum, pageSize);
+	    try {
+	        
+	        Sort sort = Sort.by(properties);
+	        
+	        sort = properties != null && properties.length > 0 && "asc".equalsIgnoreCase(direction) ? sort.ascending() : sort.descending();
+
+	        
+	        PageRequest pageable = PageRequest.of(pageNum, pageSize, sort);
+	        
+	        Page<User> userPage = repo.findAll(pageable);
+	        return userPage;
+	    } catch (IllegalArgumentException ex) {
+	        logger.error("Invalid argument: {}", ex.getMessage());
+	        throw ex;
+	    } catch (Exception ex) {
+	        logger.error("Error occurred while finding users: {}", ex.getMessage());
+	        throw new RuntimeException("Failed to find users", ex);
+	    }
+	}
 }
