@@ -1,5 +1,6 @@
 package com.luxora.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -299,5 +300,27 @@ public class UserController {
         List<User> users = service.searchUsers(searchTerm);
         return ResponseEntity.ok(users);
     }
+    
+    @GetMapping("findAll/page")
+    public ResponseEntity<Page<User>> findAllByPage(
+            @RequestParam(defaultValue = "0") int pageNum,
+            @RequestParam(defaultValue = "10") int pageSize,
+            @RequestParam String[] properties,
+            @RequestParam(defaultValue = "asc") String direction) {
+
+        logger.info("Request received to find users: page={}, size={}, properties={}, direction={}", 
+                     pageNum, pageSize, Arrays.toString(properties), direction);
+        try {
+            Page<User> userPage = service.findAllByPage(pageNum, pageSize, properties, direction);
+            return new ResponseEntity<>(userPage, HttpStatus.OK);
+        } catch (IllegalArgumentException ex) {
+            logger.error("Invalid request parameters: {}", ex.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (Exception ex) {
+            logger.error("Error occurred while retrieving users: {}", ex.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
 }
