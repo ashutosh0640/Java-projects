@@ -286,7 +286,8 @@ public class UserServiceImp implements UserService {
 			throw new RuntimeException("Failed to search user", ex);
     		
     	}
-    }
+	}
+	
 	
 	@Override
 	public Page<User> findAllByPage(int pageNum, int pageSize, String[] properties, String direction) {
@@ -310,4 +311,5 @@ public class UserServiceImp implements UserService {
 	        throw new RuntimeException("Failed to find users", ex);
 	    }
 	}
+	
 }
