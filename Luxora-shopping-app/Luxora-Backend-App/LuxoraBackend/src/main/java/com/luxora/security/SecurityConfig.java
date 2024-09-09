@@ -8,8 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -22,7 +20,6 @@ public class SecurityConfig {
 	@Bean
 	public UserDetailsService userDetailsService() {
 		return null;
-		
 	}
 	
 	
@@ -36,7 +33,7 @@ public class SecurityConfig {
 	
 	@Bean
 	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authenticationProvider(authenticationProvider());
+		//http.authenticationProvider(authenticationProvider());
 		http.authorizeHttpRequests(req -> req
 				.requestMatchers("/user/**").hasAuthority("Admin")
 				.anyRequest().authenticated())
