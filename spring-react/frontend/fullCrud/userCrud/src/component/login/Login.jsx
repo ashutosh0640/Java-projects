@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import TextField from '@mui/material/TextField';
@@ -6,20 +6,23 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Button from '@mui/material/Button';
 
+import { loginInfoContext } from '../../contexts/login/LoginContext';
+
 import './Login.css';
 
 const Login = () => {
 
+    const {loginInfo, setLoginInfo} = useContext(loginInfoContext);
     const navigate = useNavigate();
 
-    const [loginInfo, setLoginInfo] = useState({
+    const [login, setLogin] = useState({
         userId: '',
         password: ''
     });
 
     const handleLoginChange = (e) => {
         const { name, value } = e.target;
-        setLoginInfo(prevState => ({ ...prevState, [name]: value }));
+        setLogin(prevState => ({ ...prevState, [name]: value }));
 
     }
 
@@ -27,7 +30,6 @@ const Login = () => {
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
-        console.log("Login info: ", loginInfo)
         const url = 'http://localhost:8080/user/login';
         try {
             const res = await fetch(url, {
@@ -35,48 +37,41 @@ const Login = () => {
                 headers: {
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify(loginInfo)
+                body: JSON.stringify(login)
             });
 
             if (!res.ok) {
                 const errorData = await res.json();
-                throw new Error(errorData.message || "Login failed");
-            }
-
-            const data = await res.json();
-            console.log("data: ", data);
-
-            if(data) {
-                setTimeout(() => {
-                    navigate('/app');
-                }, 2000);
-                
-            }
-
-
-            if (data) {
-                toast.success("Login successful", {
-                    position: 'top-right',
-                    autoClose: 2000,
-                })
-            } else {
 
                 toast.error("Wrong credentials", {
                     position: 'top-right',
-                    autoClose: 2000,
+                    autoClose: 1000,
                 });
+
+                throw new Error(errorData.message || "Login failed");
+            }else {
+                const data = await res.json();
+                setLoginInfo({ ...loginInfo, isLogin: true, id: data.id, userId: data.userId, username: data.name, bio: data.bio, image: data.image, dob: data.dateOfbirth, city: data.city });
+                
+                toast.success("Login successful", {
+                    position: 'top-right',
+                    autoClose: 1000,
+                })
+
+                setTimeout(() => {
+                    navigate('/app');
+                }, 1000);
             }
-
-
         } catch (err) {
             toast.error(err.message || "Check credentials", {
                 position: 'top-right',
-                autoClose: 2000,
+                autoClose: 1000,
             });
         }
     }
 
     return (
+
         <div className=' login'>
 
             <form onSubmit={handleLoginSubmit} action='' method='post'>
@@ -86,7 +81,7 @@ const Login = () => {
 
                 <TextField
                     onChange={handleLoginChange}
-                    id="outlined-basic"
+                    id="outlined-basic-userId"
                     required
                     name='userId'
                     label="User Id"
@@ -95,7 +90,7 @@ const Login = () => {
 
                 <TextField
                     onChange={handleLoginChange}
-                    id="outlined-basic"
+                    id="outlined-basic-password"
                     required
                     name='password'
                     type='password'

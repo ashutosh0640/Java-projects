@@ -1,23 +1,39 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React,{ useContext, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
+
+import { loginInfoContext } from '../../contexts/login/LoginContext';
 
 import './Navbar.css';
 
 const Navbar = () => {
+    const {loginInfo, setLoginInfo} = useContext(loginInfoContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!loginInfo.isLogin) {
+            navigate('/login')
+        }
+    }, [loginInfo])
+
+    const handleLogout = () => {
+        setLoginInfo({ ...loginInfo, isLogin: false, id: null, userId: "", username: "", bio: "", image: "", dob: "", city: "" });
+    }
+
     return (
+
         <div className="navbar">
 
             <div className='nav_child_1'>
-                Logo
+                {loginInfo.username}
             </div>
 
             <div className='nav_child_2'>
 
                 <ul>
                     <NavLink
-                        to="/profile"
+                        to="/app/profile"
                         className={({ isActive, isPending }) =>
                             `${isPending ? "pending" : isActive ? "active" : ""} navlink`
                         }
@@ -28,7 +44,7 @@ const Navbar = () => {
 
 
                     <NavLink
-                        to="/users"
+                        to="/app/users"
                         className={({ isActive, isPending }) =>
                             `${isPending ? "pending" : isActive ? "active" : ""} navlink`
                         }
@@ -36,7 +52,7 @@ const Navbar = () => {
                         Users
                     </NavLink>
                     <NavLink
-                        to="/contact"
+                        to="/app/setting"
                         className={({ isActive, isPending }) =>
                             `${isPending ? "pending" : isActive ? "active" : ""} navlink`
                         }
@@ -52,7 +68,8 @@ const Navbar = () => {
                         Setting
                     </NavLink>
 
-                    <Button className="logout_btn" variant="contained">Log out</Button>
+                    <Button
+                        onClick={handleLogout} className="logout_btn" variant="contained">Log out</Button>
                 </ul>
 
             </div>

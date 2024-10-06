@@ -10,7 +10,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 
 
-	@Query("SELECT u.password FROM User u WHERE u.userId = :userId")
-    public String findPasswordByUserId(@Param("userId") String userId);
+	@Query("SELECT u FROM User u WHERE u.userId = :userId")
+    public User findUserByUserId(@Param("userId") String userId);
 
 }

@@ -11,33 +11,27 @@ import App from './App.jsx'
 import './index.css'
 import Login from './component/login/Login.jsx';
 import Signup from './component/signup/Signup.jsx';
+import Profile from './component/profile/Profile.jsx';
+import { LoginInfoProvider } from './contexts/login/LoginContext.jsx';
 
-// const router = createBrowserRouter([
-//   {
-//     path: '/app',
-//     element: <App />
-//   },
-//   {
-//     path: '/login',
-//     element: <Login />
-//   },
-//   {
-//     path: '/signup',
-//     element: <Signup />
-//   },
-//   {
-//     path: '/',
-//     element: <Login />
-//   }
-// ]);
+
 
 createRoot(document.getElementById('root')).render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/app" element={<App />} />
-    </Routes>
-  </Router>
+  <LoginInfoProvider>
+
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        <Route path="/app" element={<App />} >
+          <Route path="profile" element={<Profile />} />
+
+        </Route>
+      </Routes>
+    </Router>
+
+  </LoginInfoProvider>
+
 )
