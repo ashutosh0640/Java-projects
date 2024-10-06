@@ -1,30 +1,27 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import './Profile.css';
+import { loginInfoContext } from '../../contexts/login/LoginContext';
+
+import Card from '../card/ProfileCard';
 
 
-const profile = () => {
-    const url = `http://localhost:8080/${userID}`;
+const profile = ({firstLetter, fullName, img, bio, city}) => {
+    const {loginInfo, setLoginInfo} = useContext(loginInfoContext);
+    console.log("login info: ", loginInfo)
 
-
-    useEffect(async () => {
-        const response = await fetch(url);
-        await response.json().then(data => {
-            console.log(data);
-        });
-    })
-
+    
     return (
-        <div>
-            <h1>Profile</h1>
-            <div>
-                <img src="" alt="" />
-                <div>
-                    <h3 className='name'></h3>
-                    <p className='bio'></p>
-                    <p className='dob'></p>
-                    <p className='city'></p>
-                </div>
-            </div>
+        <div className=' border-2 border-red-500'>
+
+            <h1>This is profile Section</h1>
+            
+            {/* <Card
+             firstLetter={loginInfo.name.trim().split(" ")[0][0]}
+             fullName={loginInfo.name.trim()}
+             img={loginInfo.img}
+             bio={loginInfo.bio}
+             city={loginInfo.city}
+             /> */}
 
         </div>
     )
