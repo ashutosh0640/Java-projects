@@ -1,0 +1,199 @@
+{
+  "hash": "11669909",
+  "configHash": "e50c7b38",
+  "lockfileHash": "52fde2da",
+  "browserHash": "6ae000df",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "90a47838",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "9eed7fd1",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "6b76571a",
+      "needsInterop": false
+    },
+    "@mui/material/TextField": {
+      "src": "../../node_modules/@mui/material/TextField/index.js",
+      "file": "@mui_material_TextField.js",
+      "fileHash": "ce3aabfa",
+      "needsInterop": false
+    },
+    "@mui/material/Button": {
+      "src": "../../node_modules/@mui/material/Button/index.js",
+      "file": "@mui_material_Button.js",
+      "fileHash": "9fd59d02",
+      "needsInterop": false
+    },
+    "react-toastify": {
+      "src": "../../node_modules/react-toastify/dist/react-toastify.esm.mjs",
+      "file": "react-toastify.js",
+      "fileHash": "2c3c63d6",
+      "needsInterop": false
+    },
+    "@mui/material/styles": {
+      "src": "../../node_modules/@mui/material/styles/index.js",
+      "file": "@mui_material_styles.js",
+      "fileHash": "ad1ebfb1",
+      "needsInterop": false
+    },
+    "@mui/material/Card": {
+      "src": "../../node_modules/@mui/material/Card/index.js",
+      "file": "@mui_material_Card.js",
+      "fileHash": "a80b0c02",
+      "needsInterop": false
+    },
+    "@mui/material/CardHeader": {
+      "src": "../../node_modules/@mui/material/CardHeader/index.js",
+      "file": "@mui_material_CardHeader.js",
+      "fileHash": "ff73374e",
+      "needsInterop": false
+    },
+    "@mui/material/CardMedia": {
+      "src": "../../node_modules/@mui/material/CardMedia/index.js",
+      "file": "@mui_material_CardMedia.js",
+      "fileHash": "7e42da31",
+      "needsInterop": false
+    },
+    "@mui/material/CardContent": {
+      "src": "../../node_modules/@mui/material/CardContent/index.js",
+      "file": "@mui_material_CardContent.js",
+      "fileHash": "35f43e7c",
+      "needsInterop": false
+    },
+    "@mui/material/CardActions": {
+      "src": "../../node_modules/@mui/material/CardActions/index.js",
+      "file": "@mui_material_CardActions.js",
+      "fileHash": "5a14c89c",
+      "needsInterop": false
+    },
+    "@mui/material/Collapse": {
+      "src": "../../node_modules/@mui/material/Collapse/index.js",
+      "file": "@mui_material_Collapse.js",
+      "fileHash": "6393d951",
+      "needsInterop": false
+    },
+    "@mui/material/Avatar": {
+      "src": "../../node_modules/@mui/material/Avatar/index.js",
+      "file": "@mui_material_Avatar.js",
+      "fileHash": "babd90f0",
+      "needsInterop": false
+    },
+    "@mui/material/IconButton": {
+      "src": "../../node_modules/@mui/material/IconButton/index.js",
+      "file": "@mui_material_IconButton.js",
+      "fileHash": "364bbd5c",
+      "needsInterop": false
+    },
+    "@mui/material/Typography": {
+      "src": "../../node_modules/@mui/material/Typography/index.js",
+      "file": "@mui_material_Typography.js",
+      "fileHash": "68b0f577",
+      "needsInterop": false
+    },
+    "@mui/material/colors": {
+      "src": "../../node_modules/@mui/material/colors/index.js",
+      "file": "@mui_material_colors.js",
+      "fileHash": "7fa828ab",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Favorite": {
+      "src": "../../node_modules/@mui/icons-material/esm/Favorite.js",
+      "file": "@mui_icons-material_Favorite.js",
+      "fileHash": "33867607",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Share": {
+      "src": "../../node_modules/@mui/icons-material/esm/Share.js",
+      "file": "@mui_icons-material_Share.js",
+      "fileHash": "3d76b953",
+      "needsInterop": false
+    },
+    "@mui/icons-material/ExpandMore": {
+      "src": "../../node_modules/@mui/icons-material/esm/ExpandMore.js",
+      "file": "@mui_icons-material_ExpandMore.js",
+      "fileHash": "5e1d36e7",
+      "needsInterop": false
+    },
+    "@mui/icons-material/MoreVert": {
+      "src": "../../node_modules/@mui/icons-material/esm/MoreVert.js",
+      "file": "@mui_icons-material_MoreVert.js",
+      "fileHash": "a84e753c",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-C6WWHQR7": {
+      "file": "chunk-C6WWHQR7.js"
+    },
+    "chunk-NWJL3ZYL": {
+      "file": "chunk-NWJL3ZYL.js"
+    },
+    "chunk-LOZHJMDH": {
+      "file": "chunk-LOZHJMDH.js"
+    },
+    "chunk-SSG4DBIC": {
+      "file": "chunk-SSG4DBIC.js"
+    },
+    "chunk-XNZJSIAK": {
+      "file": "chunk-XNZJSIAK.js"
+    },
+    "chunk-YX2Z3F77": {
+      "file": "chunk-YX2Z3F77.js"
+    },
+    "chunk-ZKQJCUYF": {
+      "file": "chunk-ZKQJCUYF.js"
+    },
+    "chunk-J5CCAHHV": {
+      "file": "chunk-J5CCAHHV.js"
+    },
+    "chunk-LEWWSR5U": {
+      "file": "chunk-LEWWSR5U.js"
+    },
+    "chunk-TAPUFPH2": {
+      "file": "chunk-TAPUFPH2.js"
+    },
+    "chunk-FZ6MYBF4": {
+      "file": "chunk-FZ6MYBF4.js"
+    },
+    "chunk-TUX7A2JK": {
+      "file": "chunk-TUX7A2JK.js"
+    },
+    "chunk-7QTKZAGH": {
+      "file": "chunk-7QTKZAGH.js"
+    },
+    "chunk-37PAI3MZ": {
+      "file": "chunk-37PAI3MZ.js"
+    },
+    "chunk-KRGTNDB7": {
+      "file": "chunk-KRGTNDB7.js"
+    },
+    "chunk-5HSIJJM2": {
+      "file": "chunk-5HSIJJM2.js"
+    },
+    "chunk-T7LPWEV2": {
+      "file": "chunk-T7LPWEV2.js"
+    },
+    "chunk-ZSEW566P": {
+      "file": "chunk-ZSEW566P.js"
+    },
+    "chunk-2KHBIA62": {
+      "file": "chunk-2KHBIA62.js"
+    },
+    "chunk-4SFRHSJ3": {
+      "file": "chunk-4SFRHSJ3.js"
+    },
+    "chunk-EQCVQC35": {
+      "file": "chunk-EQCVQC35.js"
+    }
+  }
+}
