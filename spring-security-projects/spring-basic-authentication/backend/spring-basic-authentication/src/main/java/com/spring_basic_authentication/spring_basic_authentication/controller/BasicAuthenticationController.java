@@ -22,7 +22,9 @@ public class BasicAuthenticationController {
 	public BasicAuthenticationController(FetchUserDetails service) {
 		this.service = service;
 	}
-
+	
+	
+	//public api access to all user without authentication
 	@GetMapping("/public/1")
 	public String publicAPI() {
 		return "Public read api 1";
