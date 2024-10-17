@@ -1,6 +1,4 @@
-package com.spring_security.jdbc.service;
-
-import java.util.Optional;
+package com.spring_security.jdbc.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,11 +11,10 @@ import com.spring_security.jdbc.entity.User;
 import com.spring_security.jdbc.repository.UsersRepository;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService{
+public class UserDetailsServiceImpl implements UserDetailsService {
 
-	
 	private UsersRepository repo;
-	
+
 	@Autowired
 	public UserDetailsServiceImpl(UsersRepository repo) {
 		this.repo = repo;
@@ -26,9 +23,9 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//		User user = repo.findUsersByUserName(username)
-//				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: "+username));
-		return null;
+		User user = repo.findByUsername(username)
+				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
+		return UserDetailsImpl.build(user);
 	}
 
 }

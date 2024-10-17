@@ -3,9 +3,12 @@ package com.spring_security.jdbc.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -23,12 +26,12 @@ public class Role {
 	@Column(name = "role_id")
 	private Integer roleId;
 
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	@Column(name = "role_name", length = 20)
 	private AppRoles role;
 
-//	@JsonBackRefrence
 //	@ToString.Exclude
+	@JsonBackReference
 	@OneToMany(mappedBy = "role", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<User> users = new HashSet<>();
 

@@ -20,7 +20,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.Email;
@@ -68,8 +67,9 @@ public class User {
 	private boolean isTwoFactorEnabled = false;
 	private String signUpMethod;
 	
+	
+//	@ToString.Exclude
 	@JsonBackReference
-	//@ToString.Exclure
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name="role_id", referencedColumnName = "role_id")
 	private Role role;

@@ -1,13 +1,13 @@
-package com.spring_security.jdbc;
+package com.security.user_management;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JdbcApplication {
+public class UserManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JdbcApplication.class, args);
+		SpringApplication.run(UserManagementApplication.class, args);
 	}
-	
+
 }
