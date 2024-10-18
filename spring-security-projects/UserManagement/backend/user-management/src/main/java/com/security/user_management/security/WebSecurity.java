@@ -12,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 import com.security.user_management.service.UserServiceImpl;
 
 @Configuration
@@ -48,6 +50,7 @@ public class WebSecurity {
 	            request.requestMatchers("/user/**").hasAnyRole("ADMIN", "USER");
 	            request.requestMatchers("/admin/**").hasRole("ADMIN");
 	        })
+	        .httpBasic(withDefaults())
 	        .formLogin(login -> login.loginPage("/login").permitAll())
 	        .logout(logout -> logout.permitAll());
 
