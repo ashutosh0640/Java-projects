@@ -1,12 +1,13 @@
-package com.securityJWT.user_management2;
+package com.api.api_testing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserManagement2Application {
+public class ApiTestingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserManagement2Application.class, args);
+		SpringApplication.run(ApiTestingApplication.class, args);
 	}
+
 }
