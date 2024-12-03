@@ -1,0 +1,102 @@
+hughes@hughes-virtual-machine:/var/log$ tail -n 100 auth.log
+Nov 27 03:39:01 hughes-virtual-machine CRON[178164]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 03:39:01 hughes-virtual-machine CRON[178164]: pam_unix(cron:session): session closed for user root
+Nov 27 04:09:01 hughes-virtual-machine CRON[178221]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 04:09:01 hughes-virtual-machine CRON[178221]: pam_unix(cron:session): session closed for user root
+Nov 27 04:17:01 hughes-virtual-machine CRON[178234]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 04:17:01 hughes-virtual-machine CRON[178234]: pam_unix(cron:session): session closed for user root
+Nov 27 04:39:01 hughes-virtual-machine CRON[178296]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 04:39:01 hughes-virtual-machine CRON[178296]: pam_unix(cron:session): session closed for user root
+Nov 27 05:09:01 hughes-virtual-machine CRON[178358]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 05:09:01 hughes-virtual-machine CRON[178358]: pam_unix(cron:session): session closed for user root
+Nov 27 05:17:01 hughes-virtual-machine CRON[178362]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 05:17:01 hughes-virtual-machine CRON[178362]: pam_unix(cron:session): session closed for user root
+Nov 27 05:39:01 hughes-virtual-machine CRON[178437]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 05:39:01 hughes-virtual-machine CRON[178437]: pam_unix(cron:session): session closed for user root
+Nov 27 06:09:01 hughes-virtual-machine CRON[178575]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 06:09:01 hughes-virtual-machine CRON[178575]: pam_unix(cron:session): session closed for user root
+Nov 27 06:17:01 hughes-virtual-machine CRON[178580]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 06:17:01 hughes-virtual-machine CRON[178580]: pam_unix(cron:session): session closed for user root
+Nov 27 06:25:01 hughes-virtual-machine CRON[178586]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 06:25:01 hughes-virtual-machine CRON[178586]: pam_unix(cron:session): session closed for user root
+Nov 27 06:39:01 hughes-virtual-machine CRON[178645]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 06:39:01 hughes-virtual-machine CRON[178645]: pam_unix(cron:session): session closed for user root
+Nov 27 07:09:01 hughes-virtual-machine CRON[178706]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 07:09:01 hughes-virtual-machine CRON[178706]: pam_unix(cron:session): session closed for user root
+Nov 27 07:17:01 hughes-virtual-machine CRON[178711]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 07:17:01 hughes-virtual-machine CRON[178711]: pam_unix(cron:session): session closed for user root
+Nov 27 07:30:01 hughes-virtual-machine CRON[178718]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 07:30:01 hughes-virtual-machine CRON[178718]: pam_unix(cron:session): session closed for user root
+Nov 27 07:39:01 hughes-virtual-machine CRON[178807]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 07:39:01 hughes-virtual-machine CRON[178807]: pam_unix(cron:session): session closed for user root
+Nov 27 08:09:01 hughes-virtual-machine CRON[178867]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 08:09:01 hughes-virtual-machine CRON[178867]: pam_unix(cron:session): session closed for user root
+Nov 27 08:17:01 hughes-virtual-machine CRON[178870]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 08:17:01 hughes-virtual-machine CRON[178870]: pam_unix(cron:session): session closed for user root
+Nov 27 08:30:01 hughes-virtual-machine CRON[178879]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 08:30:01 hughes-virtual-machine CRON[178879]: pam_unix(cron:session): session closed for user root
+Nov 27 08:39:01 hughes-virtual-machine CRON[178935]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 08:39:01 hughes-virtual-machine CRON[178935]: pam_unix(cron:session): session closed for user root
+Nov 27 09:09:01 hughes-virtual-machine CRON[178996]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 09:09:01 hughes-virtual-machine CRON[178996]: pam_unix(cron:session): session closed for user root
+Nov 27 09:17:01 hughes-virtual-machine CRON[178999]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 09:17:01 hughes-virtual-machine CRON[178999]: pam_unix(cron:session): session closed for user root
+Nov 27 09:30:01 hughes-virtual-machine CRON[179007]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 09:30:01 hughes-virtual-machine CRON[179007]: pam_unix(cron:session): session closed for user root
+Nov 27 09:39:01 hughes-virtual-machine CRON[179064]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 09:39:01 hughes-virtual-machine CRON[179064]: pam_unix(cron:session): session closed for user root
+Nov 27 10:09:01 hughes-virtual-machine CRON[179165]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 10:09:01 hughes-virtual-machine CRON[179165]: pam_unix(cron:session): session closed for user root
+Nov 27 10:17:01 hughes-virtual-machine CRON[179170]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 10:17:01 hughes-virtual-machine CRON[179170]: pam_unix(cron:session): session closed for user root
+Nov 27 10:30:01 hughes-virtual-machine CRON[179178]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 10:30:01 hughes-virtual-machine CRON[179178]: pam_unix(cron:session): session closed for user root
+Nov 27 10:39:01 hughes-virtual-machine CRON[179237]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 10:39:01 hughes-virtual-machine CRON[179237]: pam_unix(cron:session): session closed for user root
+Nov 27 11:09:01 hughes-virtual-machine CRON[179299]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 11:09:01 hughes-virtual-machine CRON[179299]: pam_unix(cron:session): session closed for user root
+Nov 27 11:17:01 hughes-virtual-machine CRON[179302]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 11:17:01 hughes-virtual-machine CRON[179302]: pam_unix(cron:session): session closed for user root
+Nov 27 11:30:01 hughes-virtual-machine CRON[179309]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 11:30:01 hughes-virtual-machine CRON[179309]: pam_unix(cron:session): session closed for user root
+Nov 27 11:39:01 hughes-virtual-machine CRON[179365]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 11:39:01 hughes-virtual-machine CRON[179365]: pam_unix(cron:session): session closed for user root
+Nov 27 12:09:01 hughes-virtual-machine CRON[179428]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 12:09:01 hughes-virtual-machine CRON[179428]: pam_unix(cron:session): session closed for user root
+Nov 27 12:17:01 hughes-virtual-machine CRON[179432]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 12:17:01 hughes-virtual-machine CRON[179432]: pam_unix(cron:session): session closed for user root
+Nov 27 12:30:01 hughes-virtual-machine CRON[179441]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 12:30:01 hughes-virtual-machine CRON[179441]: pam_unix(cron:session): session closed for user root
+Nov 27 12:39:01 hughes-virtual-machine CRON[179500]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 12:39:01 hughes-virtual-machine CRON[179500]: pam_unix(cron:session): session closed for user root
+Nov 27 13:09:01 hughes-virtual-machine CRON[179558]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 13:09:01 hughes-virtual-machine CRON[179558]: pam_unix(cron:session): session closed for user root
+Nov 27 13:17:01 hughes-virtual-machine CRON[179561]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 13:17:01 hughes-virtual-machine CRON[179561]: pam_unix(cron:session): session closed for user root
+Nov 27 13:23:48 hughes-virtual-machine sshd[179567]: Accepted password for hughes from 172.18.19.2 port 25373 ssh2
+Nov 27 13:23:48 hughes-virtual-machine sshd[179567]: pam_unix(sshd:session): session opened for user hughes(uid=1000) by (uid=0)
+Nov 27 13:23:48 hughes-virtual-machine systemd-logind[811]: New session 3170 of user hughes.
+Nov 27 13:23:48 hughes-virtual-machine systemd: pam_unix(systemd-user:session): session opened for user hughes(uid=1000) by (uid=0)
+Nov 27 13:23:48 hughes-virtual-machine sshd[179570]: Accepted password for hughes from 172.18.19.2 port 46249 ssh2
+Nov 27 13:23:48 hughes-virtual-machine sshd[179570]: pam_unix(sshd:session): session opened for user hughes(uid=1000) by (uid=0)
+Nov 27 13:23:48 hughes-virtual-machine systemd-logind[811]: New session 3172 of user hughes.
+Nov 27 13:23:48 hughes-virtual-machine sshd[179569]: Accepted password for hughes from 172.18.19.2 port 25374 ssh2
+Nov 27 13:23:48 hughes-virtual-machine sshd[179569]: pam_unix(sshd:session): session opened for user hughes(uid=1000) by (uid=0)
+Nov 27 13:23:48 hughes-virtual-machine systemd-logind[811]: New session 3173 of user hughes.
+Nov 27 13:23:49 hughes-virtual-machine sshd[179772]: Accepted password for hughes from 172.18.19.2 port 46250 ssh2
+Nov 27 13:23:49 hughes-virtual-machine sshd[179772]: pam_unix(sshd:session): session opened for user hughes(uid=1000) by (uid=0)
+Nov 27 13:23:49 hughes-virtual-machine systemd-logind[811]: New session 3174 of user hughes.
+Nov 27 13:24:14 hughes-virtual-machine dbus-daemon[793]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+Nov 27 13:30:01 hughes-virtual-machine CRON[179881]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 13:30:01 hughes-virtual-machine CRON[179881]: pam_unix(cron:session): session closed for user root
+Nov 27 13:39:01 hughes-virtual-machine CRON[179938]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 13:39:01 hughes-virtual-machine CRON[179938]: pam_unix(cron:session): session closed for user root
+Nov 27 14:09:01 hughes-virtual-machine CRON[179998]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 14:09:01 hughes-virtual-machine CRON[179998]: pam_unix(cron:session): session closed for user root
+Nov 27 14:17:01 hughes-virtual-machine CRON[180003]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 14:17:01 hughes-virtual-machine CRON[180003]: pam_unix(cron:session): session closed for user root
+Nov 27 14:30:02 hughes-virtual-machine CRON[180014]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 14:30:02 hughes-virtual-machine CRON[180014]: pam_unix(cron:session): session closed for user root
+Nov 27 14:39:01 hughes-virtual-machine CRON[180048]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Nov 27 14:39:01 hughes-virtual-machine CRON[180048]: pam_unix(cron:session): session closed for user root
+

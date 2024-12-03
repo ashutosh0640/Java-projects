@@ -1,0 +1,101 @@
+hughes@hughes-virtual-machine:/var/log$ tail -n 100 syslog
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Listening on D-Bus User Message Bus Socket.
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Reached target Sockets.
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Reached target Basic System.
+Nov 27 13:23:48 hughes-virtual-machine systemd[1]: Started User Manager for UID 1000.
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Started PipeWire Multimedia Service.
+Nov 27 13:23:48 hughes-virtual-machine systemd[1]: Started Session 3170 of User hughes.
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Started PipeWire Media Session Manager.
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Starting Sound Service...
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Started Service for snap application snapd-desktop-integration.snapd-desktop-integ                                                                                    ration.
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Started D-Bus User Message Bus.
+Nov 27 13:23:48 hughes-virtual-machine rtkit-daemon[1154]: Supervising 5 threads of 3 processes of 2 users.
+Nov 27 13:23:48 hughes-virtual-machine pipewire[179582]: mod.rt: RTKit error: org.freedesktop.DBus.Error.AccessDenied
+Nov 27 13:23:48 hughes-virtual-machine pipewire[179582]: mod.rt: could not set nice-level to -11: Permission denied
+Nov 27 13:23:48 hughes-virtual-machine dbus-daemon[179625]: [session uid=1000 pid=179625] AppArmor D-Bus mediation is enabled
+Nov 27 13:23:48 hughes-virtual-machine dbus-daemon[179625]: [session uid=1000 pid=179625] Activating via systemd: service name='org.freede                                                                                    sktop.portal.Documents' unit='xdg-document-portal.service' requested by ':1.1' (uid=1000 pid=179585 comm="/usr/bin/snap run snapd-desktop-                                                                                    integration " label="unconfined")
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Starting flatpak document portal service...
+Nov 27 13:23:48 hughes-virtual-machine dbus-daemon[179625]: [session uid=1000 pid=179625] Activating via systemd: service name='org.freede                                                                                    sktop.impl.portal.PermissionStore' unit='xdg-permission-store.service' requested by ':1.2' (uid=1000 pid=179636 comm="/usr/libexec/xdg-doc                                                                                    ument-portal " label="unconfined")
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Starting sandboxed app permission store...
+Nov 27 13:23:48 hughes-virtual-machine dbus-daemon[179625]: [session uid=1000 pid=179625] Successfully activated service 'org.freedesktop.                                                                                    impl.portal.PermissionStore'
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Started sandboxed app permission store.
+Nov 27 13:23:48 hughes-virtual-machine dbus-daemon[179625]: [session uid=1000 pid=179625] Successfully activated service 'org.freedesktop.                                                                                    portal.Documents'
+Nov 27 13:23:48 hughes-virtual-machine systemd[179572]: Started flatpak document portal service.
+Nov 27 13:23:48 hughes-virtual-machine kernel: [2930154.430068] audit: type=1400 audit(1732694028.774:109): apparmor="DENIED" operation="c                                                                                    apable" class="cap" profile="/usr/lib/snapd/snap-confine" pid=179585 comm="snap-confine" capability=12  capname="net_admin"
+Nov 27 13:23:48 hughes-virtual-machine rtkit-daemon[1154]: Supervising 5 threads of 3 processes of 2 users.
+Nov 27 13:23:48 hughes-virtual-machine rtkit-daemon[1154]: Supervising 5 threads of 3 processes of 2 users.
+Nov 27 13:23:48 hughes-virtual-machine pipewire-media-session[179583]: mod.rt: RTKit error: org.freedesktop.DBus.Error.AccessDenied
+Nov 27 13:23:48 hughes-virtual-machine pipewire-media-session[179583]: mod.rt: could not make thread 179631 realtime using RTKit: Permissi                                                                                    on denied
+Nov 27 13:23:48 hughes-virtual-machine rtkit-daemon[1154]: Supervising 5 threads of 3 processes of 2 users.
+Nov 27 13:23:48 hughes-virtual-machine pipewire[179582]: mod.rt: RTKit error: org.freedesktop.DBus.Error.AccessDenied
+Nov 27 13:23:48 hughes-virtual-machine pipewire[179582]: mod.rt: could not make thread 179702 realtime using RTKit: Permission denied
+Nov 27 13:23:48 hughes-virtual-machine systemd[1]: Started Session 3172 of User hughes.
+Nov 27 13:23:48 hughes-virtual-machine systemd[1]: Started Session 3173 of User hughes.
+Nov 27 13:23:48 hughes-virtual-machine snapd-desktop-i[179766]: Failed to do gtk init. Waiting for a new session with desktop capabilities                                                                                    .
+Nov 27 13:23:48 hughes-virtual-machine snapd-desktop-i[179766]: Checking session /org/freedesktop/login1/session/_33172...
+Nov 27 13:23:48 hughes-virtual-machine snapd-desktop-i[179766]: Checking session /org/freedesktop/login1/session/c1...
+Nov 27 13:23:48 hughes-virtual-machine snapd-desktop-i[179766]: Checking session /org/freedesktop/login1/session/_33170...
+Nov 27 13:23:48 hughes-virtual-machine snapd-desktop-i[179766]: Checking session /org/freedesktop/login1/session/_33173...
+Nov 27 13:23:49 hughes-virtual-machine dbus-daemon[793]: [system] Activating via systemd: service name='org.bluez' unit='dbus-org.bluez.se                                                                                    rvice' requested by ':1.1149' (uid=1000 pid=179584 comm="/usr/bin/pulseaudio --daemonize=no --log-target=jo" label="unconfined")
+Nov 27 13:23:49 hughes-virtual-machine systemd[1]: Condition check resulted in Bluetooth service being skipped.
+Nov 27 13:23:49 hughes-virtual-machine rtkit-daemon[1154]: Supervising 5 threads of 3 processes of 2 users.
+Nov 27 13:23:49 hughes-virtual-machine rtkit-daemon[1154]: message repeated 4 times: [ Supervising 5 threads of 3 processes of 2 users.]
+Nov 27 13:23:49 hughes-virtual-machine systemd[179572]: Started Sound Service.
+Nov 27 13:23:49 hughes-virtual-machine systemd[179572]: Reached target Main User Target.
+Nov 27 13:23:49 hughes-virtual-machine systemd[179572]: Startup finished in 549ms.
+Nov 27 13:23:49 hughes-virtual-machine snapd-desktop-i[179766]: Detected new session 3174 at /org/freedesktop/login1/session/_33174
+Nov 27 13:23:49 hughes-virtual-machine systemd[1]: Started Session 3174 of User hughes.
+Nov 27 13:24:14 hughes-virtual-machine pulseaudio[179584]: GetManagedObjects() failed: org.freedesktop.DBus.Error.NoReply: Did not receive                                                                                     a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the rep                                                                                    ly timeout expired, or the network connection was broken.
+Nov 27 13:29:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T13:29:27.038832292+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=28.1516ms
+Nov 27 13:29:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T13:29:27.633951875+05:30 level=info msg                                                                                    ="Update check succeeded" duration=312.431581ms
+Nov 27 13:30:01 hughes-virtual-machine CRON[179882]: (root) CMD ([ -x /etc/init.d/anacron ] && if [ ! -d /run/systemd/system ]; then /usr/                                                                                    sbin/invoke-rc.d anacron start >/dev/null; fi)
+Nov 27 13:30:48 hughes-virtual-machine grafana[116459]: logger=infra.usagestats t=2024-11-27T13:30:48.029722512+05:30 level=info msg="Usag                                                                                    e stats are ready to report"
+Nov 27 13:34:29 hughes-virtual-machine systemd[1]: Started Run anacron jobs.
+Nov 27 13:34:29 hughes-virtual-machine anacron[179885]: Anacron 2.3 started on 2024-11-27
+Nov 27 13:34:29 hughes-virtual-machine anacron[179885]: Normal exit (0 jobs run)
+Nov 27 13:34:29 hughes-virtual-machine systemd[1]: anacron.service: Deactivated successfully.
+Nov 27 13:39:00 hughes-virtual-machine systemd[1]: Starting Clean php session files...
+Nov 27 13:39:01 hughes-virtual-machine systemd[1]: phpsessionclean.service: Deactivated successfully.
+Nov 27 13:39:01 hughes-virtual-machine systemd[1]: Finished Clean php session files.
+Nov 27 13:39:01 hughes-virtual-machine CRON[179939]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; th                                                                                    en /usr/lib/php/sessionclean; fi)
+Nov 27 13:39:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T13:39:27.022551224+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=12.448519ms
+Nov 27 13:39:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T13:39:27.618626926+05:30 level=info msg                                                                                    ="Update check succeeded" duration=297.910365ms
+Nov 27 13:49:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T13:49:27.041509751+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=31.437942ms
+Nov 27 13:49:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T13:49:27.633370774+05:30 level=info msg                                                                                    ="Update check succeeded" duration=311.756939ms
+Nov 27 13:59:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T13:59:27.040226217+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=29.955901ms
+Nov 27 13:59:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T13:59:27.619789227+05:30 level=info msg                                                                                    ="Update check succeeded" duration=298.733287ms
+Nov 27 14:00:48 hughes-virtual-machine grafana[116459]: logger=infra.usagestats t=2024-11-27T14:00:48.033845597+05:30 level=info msg="Usag                                                                                    e stats are ready to report"
+Nov 27 14:09:00 hughes-virtual-machine systemd[1]: Starting Clean php session files...
+Nov 27 14:09:01 hughes-virtual-machine systemd[1]: phpsessionclean.service: Deactivated successfully.
+Nov 27 14:09:01 hughes-virtual-machine systemd[1]: Finished Clean php session files.
+Nov 27 14:09:01 hughes-virtual-machine CRON[179999]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; th                                                                                    en /usr/lib/php/sessionclean; fi)
+Nov 27 14:09:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T14:09:27.041495642+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=31.319749ms
+Nov 27 14:09:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T14:09:27.626264396+05:30 level=info msg                                                                                    ="Update check succeeded" duration=304.755384ms
+Nov 27 14:17:01 hughes-virtual-machine CRON[180004]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+Nov 27 14:19:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T14:19:27.024013996+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=14.090948ms
+Nov 27 14:19:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T14:19:27.632397977+05:30 level=info msg                                                                                    ="Update check succeeded" duration=311.349237ms
+Nov 27 14:29:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T14:29:27.042912543+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=32.705011ms
+Nov 27 14:29:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T14:29:27.623023514+05:30 level=info msg                                                                                    ="Update check succeeded" duration=301.400778ms
+Nov 27 14:30:02 hughes-virtual-machine CRON[180015]: (root) CMD ([ -x /etc/init.d/anacron ] && if [ ! -d /run/systemd/system ]; then /usr/                                                                                    sbin/invoke-rc.d anacron start >/dev/null; fi)
+Nov 27 14:30:16 hughes-virtual-machine systemd[1]: Started Run anacron jobs.
+Nov 27 14:30:16 hughes-virtual-machine anacron[180016]: Anacron 2.3 started on 2024-11-27
+Nov 27 14:30:16 hughes-virtual-machine anacron[180016]: Normal exit (0 jobs run)
+Nov 27 14:30:16 hughes-virtual-machine systemd[1]: anacron.service: Deactivated successfully.
+Nov 27 14:30:21 hughes-virtual-machine prometheus[117279]: ts=2024-11-27T09:00:21.975Z caller=compact.go:576 level=info component=tsdb msg                                                                                    ="write block" mint=1732687206905 maxt=1732694400000 ulid=01JDPDK80YQPMP64D10CZ78JZV duration=57.023161ms ooo=false
+Nov 27 14:30:21 hughes-virtual-machine prometheus[117279]: ts=2024-11-27T09:00:21.979Z caller=head.go:1355 level=info component=tsdb msg="                                                                                    Head GC completed" caller=truncateMemory duration=2.871445ms
+Nov 27 14:30:21 hughes-virtual-machine prometheus[117279]: ts=2024-11-27T09:00:21.979Z caller=checkpoint.go:101 level=info component=tsdb                                                                                     msg="Creating checkpoint" from_segment=152 to_segment=153 mint=1732694400000
+Nov 27 14:30:22 hughes-virtual-machine prometheus[117279]: ts=2024-11-27T09:00:22.007Z caller=head.go:1317 level=info component=tsdb msg="                                                                                    WAL checkpoint complete" first=152 last=153 duration=28.123518ms
+Nov 27 14:30:48 hughes-virtual-machine grafana[116459]: logger=infra.usagestats t=2024-11-27T14:30:48.033323424+05:30 level=info msg="Usag                                                                                    e stats are ready to report"
+Nov 27 14:39:00 hughes-virtual-machine systemd[1]: Starting Clean php session files...
+Nov 27 14:39:01 hughes-virtual-machine CRON[180049]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; th                                                                                    en /usr/lib/php/sessionclean; fi)
+Nov 27 14:39:01 hughes-virtual-machine systemd[1]: phpsessionclean.service: Deactivated successfully.
+Nov 27 14:39:01 hughes-virtual-machine systemd[1]: Finished Clean php session files.
+Nov 27 14:39:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T14:39:27.023656987+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=13.711089ms
+Nov 27 14:39:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T14:39:27.62215342+05:30 level=info msg=                                                                                    "Update check succeeded" duration=301.250589ms
+Nov 27 14:49:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T14:49:27.069000896+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=58.955022ms
+Nov 27 14:49:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T14:49:27.617930618+05:30 level=info msg                                                                                    ="Update check succeeded" duration=297.222235ms
+Nov 27 14:59:27 hughes-virtual-machine grafana[116459]: logger=cleanup t=2024-11-27T14:59:27.068368399+05:30 level=info msg="Completed cle                                                                                    anup jobs" duration=57.777181ms
+Nov 27 14:59:27 hughes-virtual-machine grafana[116459]: logger=plugins.update.checker t=2024-11-27T14:59:27.621794316+05:30 level=info msg                                                                                    ="Update check succeeded" duration=301.069481ms
+Nov 27 14:59:27 hughes-virtual-machine grafana[116459]: logger=grafana.update.checker t=2024-11-27T14:59:27.647105135+05:30 level=info msg                                                                                    ="Update check succeeded" duration=297.695009ms
+Nov 27 14:59:27 hughes-virtual-machine grafana[116459]: logger=infra.usagestats t=2024-11-27T14:59:27.720464273+05:30 level=info msg="Sent                                                                                     usage stats" duration=318.652358ms
+Nov 27 15:00:48 hughes-virtual-machine grafana[116459]: logger=infra.usagestats t=2024-11-27T15:00:48.032943778+05:30 level=info msg="Usag                                                                                    e stats are ready to report"

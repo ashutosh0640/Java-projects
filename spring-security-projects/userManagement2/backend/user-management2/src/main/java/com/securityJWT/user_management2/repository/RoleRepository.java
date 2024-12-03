@@ -10,5 +10,5 @@ import com.securityJWT.user_management2.entity.Role;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Integer>{
 	
-	Optional<Role> findByRole(String role);
+	Optional<Role> findByName(String role);
 }
