@@ -1,53 +1,65 @@
 package com.securityJWT.user_management2.entity;
 
+import java.util.Set;
+
+import org.springframework.security.core.GrantedAuthority;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
-public class Role {
+public class Role implements GrantedAuthority{
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	
-	@Column(nullable=false, unique=true)
-	private String role;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique = true, nullable = false)
+    private String name;
+
+    @ManyToMany(mappedBy = "roles")
+    private Set<Users> users;
 
 	public Role() {
 		super();
 	}
-	
-	public Role(String role) {
-		this.role = role;
+
+	@Override
+	public String getAuthority() {
+		return name;
 	}
 
-	public Role(int id, String role) {
-		this.id = id;
-		this.role = role;
-	}
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getRole() {
-		return role;
+	public String getName() {
+		return name;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Set<Users> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<Users> users) {
+		this.users = users;
 	}
 
 	@Override
 	public String toString() {
-		return "Role [id=" + id + ", role=" + role + "]";
+		return "Role [id=" + id + ", name=" + name + ", users=" + users + "]";
 	}
 	
 }

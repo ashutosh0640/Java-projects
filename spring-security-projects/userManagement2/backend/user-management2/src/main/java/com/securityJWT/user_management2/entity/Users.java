@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,94 +21,133 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 
 @Entity
-public class Users implements UserDetails{
-	
+public class Users implements UserDetails {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long user_id;
-	
-	@Column(unique=true, nullable=true)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(unique = true, nullable = false)
 	private String username;
-	
-	@Column(nullable=true)
+
+	@Column(nullable = false)
 	private String password;
-	
-	@ManyToMany
-	@JoinTable(
-			name="users_roles",
-			joinColumns=@JoinColumn(name="user_id"),
-			inverseJoinColumns = @JoinColumn(name = "role_id")
-			)
-	private Set<Role> role = new HashSet();
-	
+
+	@Column(nullable = false)
+	private boolean enabled;
+
+	@Column(nullable = false)
+	private boolean accountNonExpired;
+
+	@Column(nullable = false)
+	private boolean accountNonLocked;
+
+	@Column(nullable = false)
+	private boolean credentialsNonExpired;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "users_roles",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
+
 	public Users() {
-		super();
-	}
-	
-	
-	public Users(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
 	}
 
-	public Users(String username, String password, Set<Role> role) {
-		super();
+	public Users(String username, String password, Set<Role> roles) {
 		this.username = username;
 		this.password = password;
-		this.role = role;
+		this.roles = roles;
+		this.enabled = true;
+		this.accountNonExpired = true;
+		this.accountNonLocked = true;
+		this.credentialsNonExpired = true;
 	}
-
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<GrantedAuthority> authoritiesList = role.stream().map(r->new SimpleGrantedAuthority(r.getRole())).collect(Collectors.toList());
-		return authoritiesList;
+		return roles;
 	}
-	@Override
-	public String getPassword() {
-		return this.password;
-	}
+
 	@Override
 	public String getUsername() {
-		return this.username;
+		return username;
 	}
-	/**
-	 * Indicates whether the user's account has expired. An expired account cannot be
-	 * authenticated.
-	 * @return <code>true</code> if the user's account is valid (ie non-expired),
-	 * <code>false</code> if no longer valid (ie expired)
-	 */
+
+	@Override
 	public boolean isAccountNonExpired() {
-		return true;
+		return accountNonExpired;
 	}
 
-	/**
-	 * Indicates whether the user is locked or unlocked. A locked user cannot be
-	 * authenticated.
-	 * @return <code>true</code> if the user is not locked, <code>false</code> otherwise
-	 */
+	@Override
 	public boolean isAccountNonLocked() {
-		return true;
+		return accountNonLocked;
 	}
 
-	/**
-	 * Indicates whether the user's credentials (password) has expired. Expired
-	 * credentials prevent authentication.
-	 * @return <code>true</code> if the user's credentials are valid (ie non-expired),
-	 * <code>false</code> if no longer valid (ie expired)
-	 */
+	@Override
 	public boolean isCredentialsNonExpired() {
-		return true;
+		return credentialsNonExpired;
 	}
 
-	/**
-	 * Indicates whether the user is enabled or disabled. A disabled user cannot be
-	 * authenticated.
-	 * @return <code>true</code> if the user is enabled, <code>false</code> otherwise
-	 */
+	@Override
 	public boolean isEnabled() {
-		return true;
+		return enabled;
 	}
+
+	@Override
+	public String getPassword() {
+		return password;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Collection<? extends GrantedAuthority> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
+	}
+
+	public void setAccountNonLocked(boolean accountNonLocked) {
+		this.accountNonLocked = accountNonLocked;
+	}
+
+	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+		this.credentialsNonExpired = credentialsNonExpired;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", accountNonExpired=" + accountNonExpired + ", accountNonLocked=" + accountNonLocked
+				+ ", credentialsNonExpired=" + credentialsNonExpired + ", roles=" + roles + "]";
+	}
+
+	
 
 }
