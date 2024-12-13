@@ -1,0 +1,7 @@
+package com.shop.luxora.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.shop.luxora.entity.User;
+
+public interface UserRepository extends JpaRepository<User, Long>{}

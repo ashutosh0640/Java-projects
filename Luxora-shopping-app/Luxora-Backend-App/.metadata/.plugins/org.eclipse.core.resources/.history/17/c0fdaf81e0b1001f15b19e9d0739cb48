@@ -1,0 +1,5 @@
+package com.shop.luxora.dto;
+
+public class RoleDTO {
+
+}

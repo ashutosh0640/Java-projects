@@ -1,0 +1,63 @@
+package com.shop.luxora.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.shop.luxora.entity.User;
+import com.shop.luxora.service.UserService;
+
+import jakarta.persistence.EntityNotFoundException;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+	
+	private UserService userService;
+
+	public UserController(UserService userService) {
+		this.userService = userService;
+	}
+	
+	
+	@PostMapping("/saveAll")
+	public ResponseEntity<?> saveAll(@RequestBody List<User> userlist) {
+		try {
+			List<User> saveList =  userService.saveAll(userlist);
+			return ResponseEntity.ok(saveList);
+		} catch (IllegalArgumentException ex) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+		} catch (Exception ex) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error happend.\n"+ ex.getMessage());
+		}
+		
+	}
+	
+	@GetMapping("/users")
+	public ResponseEntity<?> findAll() {
+		try {
+			List<User> userList = userService.findAll();
+			return ResponseEntity.ok(userList);
+		} catch (Exception ex) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occured.\n"+ex.getMessage());
+		}
+	}
+	
+	@PostMapping("/findAllById")
+	public ResponseEntity<?> findAllById(@RequestBody List<Long> ids) {
+		try {
+			List<User> userList = userService.findAllById(ids);
+			return ResponseEntity.ok(userList);
+		} catch (EntityNotFoundException ex) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found for given Ids.\n"+ex.getMessage());
+		}
+	}
+	
+
+}
