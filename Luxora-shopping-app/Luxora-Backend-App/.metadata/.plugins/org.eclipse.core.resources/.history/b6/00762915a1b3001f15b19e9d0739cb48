@@ -1,0 +1,5 @@
+package com.shop.luxora.service;
+
+public interface UserService {
+
+}

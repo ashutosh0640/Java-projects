@@ -1,0 +1,24 @@
+package com.shop.luxora.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.shop.luxora.entity.Role;
+import com.shop.luxora.repository.RoleRepository;
+
+@Service
+public class RoleService {
+	
+	private RoleRepository roleRepo;
+	
+	
+	public RoleService(RoleRepository roleRepo) {
+		this.roleRepo = roleRepo;
+	}
+
+
+	public List<Role> saveAll(Iterable<Role> roles) {
+		return roleRepo.saveAll(roles);
+	}
+}

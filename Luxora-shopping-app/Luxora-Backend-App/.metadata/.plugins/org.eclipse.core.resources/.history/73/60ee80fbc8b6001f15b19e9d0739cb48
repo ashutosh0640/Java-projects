@@ -1,0 +1,5 @@
+package com.shop.luxora.exception;
+
+public class GlobalExceptionHandler {
+
+}

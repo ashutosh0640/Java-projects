@@ -1,0 +1,5 @@
+package com.shop.luxora.entity;
+
+public class User {
+
+}

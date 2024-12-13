@@ -1,0 +1,93 @@
+package com.shop.luxora.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.shop.luxora.entity.Role;
+import com.shop.luxora.service.RoleService;
+
+import jakarta.persistence.EntityNotFoundException;
+
+@RestController
+@RequestMapping("role")
+public class RoleController {
+	
+	private RoleService roleService;
+
+	public RoleController(RoleService roleService) {
+		this.roleService = roleService;
+	}
+
+
+	@PostMapping("/saveAll")
+    public ResponseEntity<?> saveAllRoles(@RequestBody List<Role> roles) {
+        try {
+            if (roles == null || roles.isEmpty()) {
+                return ResponseEntity.badRequest().body("Role list cannot be null or empty");
+            }
+
+            List<Role> savedRoles = roleService.saveAll(roles);
+            return ResponseEntity.ok(savedRoles);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("An error occurred while saving roles: " + e.getMessage());
+        }
+    }
+	
+	
+	@GetMapping("/findAll")
+	public ResponseEntity<?> findAll() {
+		try {
+            List<Role> findRoles = roleService.findAll();
+            return ResponseEntity.ok(findRoles);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("An error occurred while finding	 roles: " + e.getMessage());
+        }
+	}
+	
+	
+	@PostMapping("/findByIds")
+    public ResponseEntity<?> findAllById(@RequestBody List<Integer> ids) {
+        try {
+            List<Role> roles = roleService.findAllById(ids);
+            return ResponseEntity.ok(roles);
+        } catch (EntityNotFoundException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of(
+                "message", ex.getMessage(),
+                "status", HttpStatus.NOT_FOUND.value()
+            ));
+        } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of(
+                "message", "An unexpected error occurred.",
+                "status", HttpStatus.INTERNAL_SERVER_ERROR.value()
+            ));
+        }
+    }
+	
+	
+	@PostMapping("/save")
+	public ResponseEntity<?> save(@RequestBody Role role) {
+		if(role == null || role.getName().isEmpty()) {
+			return ResponseEntity.badRequest().body("Role can not be null or empty.");
+		}
+		
+		try {
+			Role savedRole = roleService.save(role);
+			return ResponseEntity.ok(savedRole);
+		} catch(Exception ex) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An error occurred while saving roles: " + e.getMessage());
+		}
+		
+	}
+
+}

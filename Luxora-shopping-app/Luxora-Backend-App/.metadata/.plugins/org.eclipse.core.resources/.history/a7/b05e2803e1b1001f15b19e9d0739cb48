@@ -1,0 +1,5 @@
+package com.shop.luxora.repository;
+
+public class RolesRepo {
+
+}

@@ -1,0 +1,54 @@
+package com.shop.luxora.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.shop.luxora.entity.Role;
+import com.shop.luxora.service.RoleService;
+
+@RestController
+@RequestMapping("role")
+public class RoleController {
+	
+	private RoleService roleService;
+
+	public RoleController(RoleService roleService) {
+		this.roleService = roleService;
+	}
+
+
+	@PostMapping("/saveAll")
+    public ResponseEntity<?> saveAllRoles(@RequestBody List<Role> roles) {
+        try {
+            if (roles == null || roles.isEmpty()) {
+                return ResponseEntity.badRequest().body("Role list cannot be null or empty");
+            }
+
+            List<Role> savedRoles = roleService.saveAll(roles);
+            return ResponseEntity.ok(savedRoles);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("An error occurred while saving roles: " + e.getMessage());
+        }
+    }
+	
+	
+	@GetMapping("/findAll")
+	public ResponseEntity<?> findAll() {
+		try {
+            List<Role> findRoles = roleService.findAll();
+            return ResponseEntity.ok(findRoles);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("An error occurred while finding roles: " + e.getMessage());
+        }
+	}
+
+}
