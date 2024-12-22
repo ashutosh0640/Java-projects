@@ -48,9 +48,9 @@ public class User {
 	private String mobileNo;
 	
 	@Column(nullable=false)
-	@Size(min = 7, max = 40, message = "Password must be between 7 and 40 characters.")
+//	@Size(min = 7, max = 40, message = "Password must be between 7 and 40 characters.")
 	@NotBlank(message = "Password is mandatory")
-	@Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,30}$", message = "Invalid password. Password should contain at least one capital letter one small letter and one special character(@ $ ! % * ? &). Length should be between 6 and 40")
+//	@Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,30}$", message = "Invalid password. Password should contain at least one capital letter one small letter and one special character(@ $ ! % * ? &). Length should be between 6 and 40")
 	private String password;
 	
 	private String image;

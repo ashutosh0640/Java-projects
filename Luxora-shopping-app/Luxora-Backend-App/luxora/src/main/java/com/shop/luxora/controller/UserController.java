@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shop.luxora.entity.User;
 import com.shop.luxora.service.UserService;
 
-import jakarta.persistence.EntityNotFoundException;
 
 @RestController
 @RequestMapping("/user")
@@ -26,6 +25,8 @@ public class UserController {
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
+	
+
 	
 	
 	@PostMapping("/saveAll")
@@ -41,7 +42,7 @@ public class UserController {
 		
 	}
 	
-	@GetMapping("/users")
+	@GetMapping("/all")
 	public ResponseEntity<?> findAll() {
 		try {
 			List<User> userList = userService.findAll();

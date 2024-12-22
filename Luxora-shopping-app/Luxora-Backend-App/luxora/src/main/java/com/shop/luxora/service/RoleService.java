@@ -23,6 +23,8 @@ public interface RoleService {
 	
 	public Role findById(Integer id);
 	
+	public Role findByName(String name);
+	
 	public boolean existsById(Integer id);
 	
 	public long getRolesCount();

@@ -32,12 +32,6 @@ public class RoleServiceImp implements RoleService {
 			throw new IllegalArgumentException("Role list cannot be null or empty");
 		}
 
-		roles.forEach(role -> {
-			if (role.getName() == null || role.getName().isEmpty()) {
-				throw new IllegalArgumentException("Role name cannot be null or empty");
-			}
-		});
-
 		try {
 			return roleRepo.saveAll(roles);
 		} catch (Exception e) {
@@ -65,10 +59,6 @@ public class RoleServiceImp implements RoleService {
 
 	@Override
 	public Role save(Role role) {
-		if (role == null || role.getName().isEmpty()) {
-			throw new IllegalArgumentException("Role can not be null or empty.");
-		}
-
 		try {
 			return roleRepo.save(role);
 		} catch (Exception e) {
@@ -92,6 +82,11 @@ public class RoleServiceImp implements RoleService {
         return roleRepo.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Role not found for ID: " + id));
     }
+	
+	@Override
+	public Role findByName(String name) {
+		return roleRepo.findByName(name);
+	}
 
 
     /**
@@ -101,7 +96,7 @@ public class RoleServiceImp implements RoleService {
      */
     public boolean existsById(Integer id) {
         if (id == null || id <= 0) {
-            throw new IllegalArgumentException("Invalid ID provided");
+            throw new IllegalArgumentException("ID must be a positive integer.");
         }
         return roleRepo.existsById(id);
     }
@@ -128,13 +123,13 @@ public class RoleServiceImp implements RoleService {
     @Transactional
     @Override
     public void deleteById(Integer roleId) {
-        Optional<Role> role = roleRepo.findById(roleId);
-        
-        if (!role.isPresent()) {
-            throw new EntityNotFoundException("Role not found with id: " + roleId);
-        }
+//        Optional<Role> role = roleRepo.findById(roleId);
+//        
+//        if (!role.isPresent()) {
+//            throw new EntityNotFoundException("Role not found with id: " + roleId);
+//        }
 
-        roleRepo.delete(role.get());
+        roleRepo.deleteById(roleId);
     }
     
     
@@ -203,5 +198,7 @@ public class RoleServiceImp implements RoleService {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
+
+
 
 }

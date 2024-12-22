@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="roles")
@@ -26,9 +27,11 @@ public class Role {
 	private Integer id;
 	
 	@Column(length=40, nullable=false, unique=true)
+	@NotBlank(message="Role name cann't be blank.")
 	private String name;
 	
 	@Column(length=255, nullable=false)
+	@NotBlank(message="Role discription cann't be blank.")
 	private String discription;
 	
 

@@ -1,0 +1,5 @@
+package com.shop.luxora.serviceImp;
+
+public class customUserDetailsService {
+
+}

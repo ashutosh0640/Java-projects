@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.shop.luxora.entity.User;
@@ -23,12 +24,17 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class UserServiceImp implements UserService{
 	
+	private PasswordEncoder passwordEncoder;
 	private UserRepository userRepo;
 	private static final String EMAIL_REGEX = "^[\\w.-]+@[\\w.-]+\\.[A-Za-z]{2,}$";
 	private static final String MOBILE_NUMBER_REGEX = "^[6789]\\d{9}$";
 	private static final String PASSWORD_REGEX = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,30}$";
 	
-	public UserServiceImp(UserRepository userRepo) {
+	
+
+	public UserServiceImp(PasswordEncoder passwordEncoder, UserRepository userRepo) {
+		super();
+		this.passwordEncoder = passwordEncoder;
 		this.userRepo = userRepo;
 	}
 
@@ -37,28 +43,6 @@ public class UserServiceImp implements UserService{
 		if(userlist == null || userlist.isEmpty()) {
 			throw new IllegalArgumentException("User List can't be null or empty.");
 		}
-		
-		
-		//validate all user in user list
-//		userlist.forEach(user -> {
-//			if (user == null) {
-//		        throw new IllegalArgumentException("User object cannot be null.");
-//		    }
-//
-//		    validateField(user.getFirstName(), "First Name", "User with email: " + user.getEmail());
-//		    
-//		    validateField(user.getEmail(), "Email", "User with first name: " + user.getFirstName());
-//		    
-//		    validateEmail(user.getEmail());
-//
-//		    validateField(user.getMobileNo(), "Mobile Number", "User with email: " + user.getEmail());
-//		    
-//		    validateMobileNumber(user.getMobileNo());
-//
-//		    validateField(user.getPassword(), "Password", "User with email: " + user.getEmail());
-//		    
-//		    validatePassword(user.getPassword());
-//		});
 		
 		try {
 			return userRepo.saveAll(userlist);
@@ -84,6 +68,22 @@ public class UserServiceImp implements UserService{
 		}
 		return userList;
 	}
+	
+	@Override
+	public User findUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User findUserByMobileNo(String mobileNo) {
+		try {
+			validateMobileNumber(mobileNo);
+		} catch (Exception ex) {
+			
+		}
+		return null;
+	}
 
 	@Override
 	public User save(User user) {
@@ -91,26 +91,17 @@ public class UserServiceImp implements UserService{
 		if (user == null) {
 	        throw new IllegalArgumentException("User object cannot be null.");
 	    }
-
-//	    validateField(user.getFirstName(), "First Name", "User with email: " + user.getEmail());
-//	    
-//	    validateField(user.getEmail(), "Email", "User with first name: " + user.getFirstName());
-//	    
-//	    validateEmail(user.getEmail());
-//
-//	    validateField(user.getMobileNo(), "Mobile Number", "User with email: " + user.getEmail());
-//	    
-//	    validateMobileNumber(user.getMobileNo());
-//
-//	    validateField(user.getPassword(), "Password", "User with email: " + user.getEmail());
-//	    
-//	    validatePassword(user.getPassword());
-		
-		try {
-			return userRepo.save(user);
-		} catch(Exception ex) {
-			throw new RuntimeException("An unexpected error occured.\n"+ex.getMessage());
+		if (isPasswordValid(user.getPassword())) {
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
+			try {
+				return userRepo.save(user);
+			} catch(Exception ex) {
+				throw new RuntimeException("An unexpected error occured.\n"+ex.getMessage());
+			}
+			
 		}
+		throw new RuntimeException("Invalid password. Password should contain at least one capital letter one small letter and one special character(@ $ ! % * ? &).");
+		
 	}
 
     public User findById(Long id) {
@@ -325,6 +316,8 @@ public class UserServiceImp implements UserService{
 		Matcher matcher = pattern.matcher(password); 
 		return matcher.matches(); 
 	}
+
+
 	
 
 
