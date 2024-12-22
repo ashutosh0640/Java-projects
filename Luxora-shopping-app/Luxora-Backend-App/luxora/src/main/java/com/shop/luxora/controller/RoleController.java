@@ -47,7 +47,7 @@ public class RoleController {
     }
 	
 	
-	@GetMapping("/findAll")
+	@GetMapping("")
 	public ResponseEntity<?> findAll() {
 		try {
             List<Role> findRoles = roleService.findAll();
@@ -99,6 +99,12 @@ public class RoleController {
     public ResponseEntity<?> findById(@PathVariable Integer id) {
         Role role = roleService.findById(id);
         return ResponseEntity.ok(role);
+    }
+    
+    @GetMapping("/name/{name}")
+    public ResponseEntity<?> findByName(@PathVariable String name) {
+    	Role role = roleService.findByName(name);
+    	return ResponseEntity.ok(role);
     }
     
     

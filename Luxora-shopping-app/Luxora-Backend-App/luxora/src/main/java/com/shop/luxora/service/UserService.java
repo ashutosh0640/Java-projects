@@ -22,7 +22,10 @@ public interface UserService {
 
 	
 	public List<User> findAllById(List<Long> ids);
-
+	
+	public User findUserByEmail(String email);
+	
+	public User findUserByMobileNo(String mobileNo);
 	
 	public User save(User user);
 

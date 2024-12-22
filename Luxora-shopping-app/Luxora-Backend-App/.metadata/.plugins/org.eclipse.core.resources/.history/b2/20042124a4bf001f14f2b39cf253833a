@@ -1,0 +1,25 @@
+package com.shop.luxora.serviceImp;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.shop.luxora.repository.UserRepository;
+
+public class customUserDetailsService implements UserDetailsService{
+
+	private final UserRepository userRepo;
+	
+	public customUserDetailsService(UserRepository userRepo) {
+		this.userRepo = userRepo;
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
+		
+		
+		return null;
+	}
+
+}
