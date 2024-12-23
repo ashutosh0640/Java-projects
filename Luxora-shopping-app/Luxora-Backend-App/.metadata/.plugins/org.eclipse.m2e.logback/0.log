@@ -1321,3 +1321,15 @@
 2024-12-22 07:43:04,998 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-12-22 07:43:05,027 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-12-22 07:43:05,031 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Ashutosh\java-projects\Luxora-shopping-app\Luxora-Backend-App\luxora\src\test\resources
+2024-12-22 15:37:56,830 [Worker-159: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.shop:luxora:0.0.1-SNAPSHOT @ D:\Ashutosh\java-projects\Luxora-shopping-app\Luxora-Backend-App\luxora\pom.xml.
+2024-12-22 15:37:59,453 [Worker-159: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-22 15:37:59,619 [Worker-159: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-22 15:37:59,628 [Worker-159: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Ashutosh\java-projects\Luxora-shopping-app\Luxora-Backend-App\luxora\src\test\resources
+2024-12-23 19:38:13,552 [Worker-315: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.shop:luxora:0.0.1-SNAPSHOT @ D:\Ashutosh\java-projects\Luxora-shopping-app\Luxora-Backend-App\luxora\pom.xml.
+2024-12-23 19:38:17,120 [Worker-315: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-23 19:38:17,174 [Worker-315: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-23 19:38:17,186 [Worker-315: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Ashutosh\java-projects\Luxora-shopping-app\Luxora-Backend-App\luxora\src\test\resources
+2024-12-23 19:49:59,369 [Worker-327: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.shop:luxora:0.0.1-SNAPSHOT @ D:\Ashutosh\java-projects\Luxora-shopping-app\Luxora-Backend-App\luxora\pom.xml.
+2024-12-23 19:50:01,980 [Worker-327: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-12-23 19:50:02,033 [Worker-327: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-12-23 19:50:02,043 [Worker-327: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Ashutosh\java-projects\Luxora-shopping-app\Luxora-Backend-App\luxora\src\test\resources
